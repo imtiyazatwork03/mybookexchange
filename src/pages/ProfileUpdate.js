@@ -6,4 +6,4 @@ const ProfileUpdate = () => {
   )
 }
 
-export default ProfileUpdate
+export default ProfileUpdate;
