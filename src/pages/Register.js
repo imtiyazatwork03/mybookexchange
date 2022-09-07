@@ -19,13 +19,13 @@ function Register() {
                         <div className="col-lg-6 col-md-6 type-coloum">
                             <div className="pt-30 pr-30 pb-30 pl-30 clearfix bg-white card">
                                 <img src="images/seller.png" alt="seller" />
-                                <Link to="register-seller.html" className="button">I have the books</Link>
+                                <Link to="/register" className="button">I have the books</Link>
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-6 type-coloum">
                             <div className="pt-30 pr-30 pb-30 pl-30 clearfix bg-white card">
                                 <img src="images/searcher.png" alt="search" />
-                                <Link to="index.html" className="button">I need to find some books</Link>
+                                <Link to="/" className="button">I need to find some books</Link>
                             </div>
                         </div>
                     </div>

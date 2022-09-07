@@ -21,12 +21,12 @@ function LogIn() {
                                     <input type="password" placeholder="Password" id="password" className=" form-control" name="password" />
                                 </div>
                                 <p className="mt-20 mb-20 text-right">
-                                    <Link to="/">Forgot Password?</Link>
+                                    <Link to="/forgot-password">Forgot Password?</Link>
                                 </p>
-                                <Link to="/" className="button">Login</Link>
+                                <Link to="/login" className="button">Login</Link>
                                 <p className="mt-20 mb-0 dnthvAcnt">
                                     Don't have an account?
-                                    <Link to="/">
+                                    <Link to="/register">
                                         <b>Join Now</b>
                                     </Link>
                                 </p>
