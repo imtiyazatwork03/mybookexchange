@@ -1,15 +1,17 @@
 import React from 'react'
-import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import Search from '../components/home/Search';
+import Header from '../components/layout/Header';
+import Banner from '../components/home/Banner';
+import Main from '../components/home/Main';
 
 const Home = () => {
   return (
-    <>
-      <Header />
-      <Search />
+    <div className="wrapper">
+      <Banner />
+      <Header showAddInfo={false} />
+      <Main />
       <Footer />
-    </>
+    </div>
   )
 }
 

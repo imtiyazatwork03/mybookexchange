@@ -2,6 +2,13 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
+import LogIn from './pages/LogIn';
+import Register from './pages/Register';
+import RegisterSeller from './pages/RegisterSeller';
+import ForgotPassword from './pages/ForgotPassword';
+import NotFound from './pages/NotFound';
+import TermAndCondition from './pages/TermAndCondition';
+import UnderConstruction from './pages/UnderConstruction';
 import Profile from './pages/Profile';
 import ProfileUpdate from './pages/ProfileUpdate';
 import PrivateRoutes from './utils/PrivateRoutes';
@@ -17,6 +24,13 @@ function App() {
           </Route>
         </Route>
         <Route element={<Home />} path="/" />
+        <Route element={<LogIn />} path="/Login" />
+        <Route element={<Register />} path="/register" />
+        <Route element={<RegisterSeller />} path="/register-seller" />
+        <Route element={<ForgotPassword />} path="/forgot-password" />
+        <Route element={<NotFound />} path="/not-found" />
+        <Route element={<TermAndCondition />} path="/term-and-condition" />
+        <Route element={<UnderConstruction />} path="/under-construction" />
         <Route path="*" element={<Home />} />
       </Routes>
       <ToastContainer
