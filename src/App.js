@@ -12,6 +12,10 @@ import UnderConstruction from './pages/UnderConstruction';
 import Profile from './pages/Profile';
 import ProfileUpdate from './pages/ProfileUpdate';
 import PrivateRoutes from './utils/PrivateRoutes';
+import { ListBooks } from './pages/ListBooks';
+import Dashboard from './pages/Dashboard';
+import Cart from './pages/Cart';
+import MyListingBooks from './pages/MyListingBooks';
 
 function App() {
   return (
@@ -31,7 +35,12 @@ function App() {
         <Route element={<NotFound />} path="/not-found" />
         <Route element={<TermAndCondition />} path="/term-and-condition" />
         <Route element={<UnderConstruction />} path="/under-construction" />
+        <Route element={<ListBooks />} path="/list-books" />
+        <Route element={<Dashboard />} path="/dashboard" />
+        <Route element={<Cart/>} path="/cart" />
+        <Route element={<MyListingBooks/>} path="/my-listing-books" />
         <Route path="*" element={<Home />} />
+      
       </Routes>
       <ToastContainer
         position="top-right"
