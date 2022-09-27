@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SideProfile from '../cart/SideProfile';
 
-const Header = ({ showAddInfo }) => {
+const Header = ({ showAddInfo, showLogin, sideProfile }) => {
     return (
         <header className="hm main-header">
             <div className="container">
@@ -18,10 +19,20 @@ const Header = ({ showAddInfo }) => {
                         </nav>
                     </>
                     : null}
+
+
+                    { showLogin ?
                 <div className="rightNav">
                     <Link to="/login" className="button yellow">Login</Link>
                     <Link to="/register" className="button">Join Now</Link>
                 </div>
+                   : null }
+                   
+
+                    { sideProfile ?
+                        <SideProfile />
+                   : null }
+
                 <div className="rightNav mbl dropdown">
                     <Link data-toggle="dropdown" to="/" role="button" aria-haspopup="true" aria-expanded="false">
                         <i className="zmdi zmdi-menu ti-align-right"></i>

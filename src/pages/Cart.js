@@ -11,7 +11,7 @@ const Cart = () => {
   ]
   return (
     <>
-      <Header showAddInfo={true} />
+      <Header showAddInfo={true} showLogin={false} sideProfile={true}/>
       <Breadcrumb breadcrumbs={breadcrumbs}/>
       <CartTable />
       <Footer />
