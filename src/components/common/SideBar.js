@@ -12,7 +12,7 @@ function SideBar() {
                     <li><Link to="/">Manage Book Listing</Link></li>
                     <li><Link to="/">Edit Membership</Link></li>
                     <li><Link to="/">Want to List Book</Link></li>
-                    <li><Link to="/"> Logout</Link></li>
+                    <li><Link to="/">Logout</Link></li>
                 </ul>
             </div>
         </aside>

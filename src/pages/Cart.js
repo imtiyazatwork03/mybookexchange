@@ -7,7 +7,7 @@ import Breadcrumb from '../components/common/Breadcrumb';
 const Cart = () => {
   const breadcrumbs = [
     { name: 'Dashboard', active: true, route: '/dashboard' },
-    { name: 'cart', active: false, },
+    { name: 'cart', active: false  },
   ]
   return (
     <>

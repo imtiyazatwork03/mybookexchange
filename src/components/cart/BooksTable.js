@@ -41,9 +41,9 @@ function BooksTable() {
                             </tr>
                         </thead>
                         <tbody>
-                            {datas && datas.length && datas.map((prop, index) => {
+                            {datas && datas.length && datas.map(prop => {
                                 return (
-                                    <tr key={index}>
+                                    <tr key={prop.id}>
                                         <td>
                                             {prop.title}
                                         </td>
