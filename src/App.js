@@ -35,12 +35,11 @@ function App() {
         <Route element={<NotFound />} path="/not-found" />
         <Route element={<TermAndCondition />} path="/term-and-condition" />
         <Route element={<UnderConstruction />} path="/under-construction" />
+        <Route element={<MyListingBooks />} path="/my-listing-books" />
         <Route element={<ListBooks />} path="/list-books" />
         <Route element={<Dashboard />} path="/dashboard" />
-        <Route element={<Cart/>} path="/cart" />
-        <Route element={<MyListingBooks/>} path="/my-listing-books" />
+        <Route element={<Cart />} path="/cart" />
         <Route path="*" element={<Home />} />
-      
       </Routes>
       <ToastContainer
         position="top-right"

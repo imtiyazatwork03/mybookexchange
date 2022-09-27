@@ -12,7 +12,7 @@
 .login.screen {
     background-image: url(../public/images/login-inner-bg.jpg);
 }
-.bg-lgtblue{background-color:#edf2f5}
+.bg-lgtblue{background-color:#edf2f5 !important}
 .forget-screen {
     background-color: #edf2f5;
 }
@@ -30,7 +30,7 @@ b, strong {
     color: #323232;
 }
 .main-header {
-    background: #fff;
+    background: #fff !important;
     -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
@@ -284,6 +284,7 @@ ul.gttl{padding-left: 0px}
 .bg-blue, .breadcrumb {
     background-color: #0f65b1;
 }
+.bg-gry {background: #edf2f5;}
 .breadcrumb.tranparent{ margin-bottom:0px; background-color:transparent;}
 .tab .nav.nav-tabs li a.active {
     background: #ed9f31;

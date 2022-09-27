@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Breadcrumb() {
+function Breadcrumb({breadcrumbs}) {
     return (
         <div className="bg-blue">
             <div className="container">
                 <ol className="breadcrumb pb-20 pt-20" style={{ backgroundColor: '#0f65b1' }}>
-                    <li className="breadcrumb-item">
-                        <Link to="/" className="default-color">Home</Link>
-                    </li>
-                    <li className="breadcrumb-item active">Terms and Conditions</li>
+                    {breadcrumbs && breadcrumbs.length && breadcrumbs.map((prop, index) => {
+                        return prop.active ?
+                            <li key={index} className="breadcrumb-item">
+                                <Link to={prop.route} className="default-color">{prop.name}</Link>
+                            </li> :
+                            <li key={index} className="breadcrumb-item active">{prop.name}</li>
+                    })}
                 </ol>
             </div>
         </div>

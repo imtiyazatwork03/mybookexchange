@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SidebarDash = () => {
+function SideBar() {
     return (
         <aside className="col-md-3 col-lg-3 pb-50">
             <h5 className="bold border-bottom pb-20">Dashboard</h5>
@@ -12,11 +12,11 @@ const SidebarDash = () => {
                     <li><Link to="/">Manage Book Listing</Link></li>
                     <li><Link to="/">Edit Membership</Link></li>
                     <li><Link to="/">Want to List Book</Link></li>
-                    <li><Link to="index.html"> Logout</Link></li>
+                    <li><Link to="/"> Logout</Link></li>
                 </ul>
             </div>
         </aside>
     )
 }
 
-export default SidebarDash
+export default SideBar

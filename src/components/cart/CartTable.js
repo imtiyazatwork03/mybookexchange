@@ -1,18 +1,18 @@
-import React from 'react'
-import SidebarDash from './SidebarDash'
-import BookForm from './BookForm'
+import React from 'react';
+import Payment from './Payment';
+import BooksTable from './BooksTable';
 
-const ListBooksSidebar = () => {
+const CartTable = () => {
     return (
-        <div className="wrapper">
-            <section className="wdth100 bg-gry">
+        <div>
+            <section className="wdth1024">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 pb-50 pt-50">
                             <div className="chat-section ">
                                 <div className="row ">
-                                    <SidebarDash />
-                                    <BookForm />
+                                    <BooksTable />
+                                    <Payment />
                                 </div>
                             </div>
                         </div>
@@ -20,7 +20,7 @@ const ListBooksSidebar = () => {
                 </div>
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default ListBooksSidebar
+export default CartTable;
