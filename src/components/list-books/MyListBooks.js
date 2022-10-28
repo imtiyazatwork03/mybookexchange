@@ -4,7 +4,7 @@ import SidebarDash from '../list-books/SidebarDash'
 
 function MyListBooks() {
     return (
-        <div className="wrapper">
+        <div className="wrapper height_my_wrapper">
             <section className="wdth100 bg-gry">
                 <div className="container">
                     <div className="row">

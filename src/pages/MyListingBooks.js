@@ -10,13 +10,13 @@ const MyListingBooks = () => {
         { name: 'List Books', active: false, },
     ]
     return (
-        <>
-            <Header showAddInfo={true} />
-            <Breadcrumb breadcrumbs={breadcrumbs} />
-            <MyListBooks />
-            <Footer />
-        </>
-    )
+      <div className="Manage_Book_Listing">
+        <Header showAddInfo={true} />
+        <Breadcrumb breadcrumbs={breadcrumbs} />
+        <MyListBooks />
+        <Footer />
+      </div>
+    );
 }
 
 export default MyListingBooks
