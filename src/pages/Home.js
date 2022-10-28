@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="wrapper">
       <Banner />
-      <Header showAddInfo={false} />
+      <Header showAddInfo={false}  showLogin={true} />
       <Main />
       <Footer />
     </div>
