@@ -9,30 +9,25 @@ const Header = ({ showAddInfo, showLogin, sideProfile }) => {
                 {showAddInfo ?
                     <>
                         <Link className="logo" to="/">
-                            <img src="images/logo-dark.png" alt="logo" />
+                            <img src="/images/logo-dark.png" alt="logo" />
                         </Link>
                         <nav className="middleNav">
-                            <Link to="/">About</Link>
-                            <Link to="/">User Agreement</Link>
-                            <Link to="/">Updates</Link>
-                            <Link to="/">Contact Us</Link>
+                            <Link to="/aboutus">About</Link>
+                            <Link to="/useragreement">User Agreement</Link>
+                            <Link to="/updates">Updates</Link>
+                            <Link to="/contactus">Contact Us</Link>
                         </nav>
                     </>
                     : null}
-
-
-                    { showLogin ?
-                <div className="rightNav">
-                    <Link to="/login" className="button yellow">Login</Link>
-                    <Link to="/register" className="button">Join Now</Link>
-                </div>
-                   : null }
-                   
-
-                    { sideProfile ?
-                        <SideProfile />
-                   : null }
-
+                {showLogin ?
+                    <div className="rightNav">
+                        <Link to="/login" className="button yellow">Login</Link>
+                        <Link to="/register" className="button">Join Now</Link>
+                    </div>
+                    : null}
+                {sideProfile ?
+                    <SideProfile />
+                    : null}
                 <div className="rightNav mbl dropdown">
                     <Link data-toggle="dropdown" to="/" role="button" aria-haspopup="true" aria-expanded="false">
                         <i className="zmdi zmdi-menu ti-align-right"></i>

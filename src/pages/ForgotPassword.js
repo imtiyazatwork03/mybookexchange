@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import { Link } from 'react-router-dom';
 
 function ForgotPassword() {
     return (
@@ -16,10 +15,10 @@ function ForgotPassword() {
                                 <h4>Forgot your Password ?</h4>
                                 <p>Enter your Email Address and we'll send you a new password</p>
                                 <div className="section-field mt-20 mb-20">
-                                    <input type="email" placeholder="Email*" id="email" className="form-control" name="email" />
+                                    <input type="email" placeholder="Email" id="email" className="form-control" name="email" />
                                 </div>
-                                <Link to="/" className="button">Send</Link>
-                                <p className="mt-20 mb-0 dnthvAcnt">Don't Receive? <Link to="/"> <b>Send Again</b></Link></p>
+                                <div className="button">Send</div>
+                                <p className="mt-20 mb-0 dnthvAcnt" style={{cursor: 'pointer'}}>Don't Receive? <b>Send Again</b></p>
                             </div>
                         </div>
                     </div>

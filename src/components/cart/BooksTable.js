@@ -57,12 +57,12 @@ function BooksTable() {
                                             {prop.netpay}
                                         </td>
                                         <td>
-                                            <Link className="pr-2" to="/">
-                                                <i className="fa fa-eye"></i>
-                                            </Link>
-                                            <Link to="/">
-                                                <i className="fa fa-trash-o text-danger"></i>
-                                            </Link>
+                                        <Link className="pr-2" to="/" title="Edit">
+                                            <ion-icon name="create-outline"></ion-icon>
+                                        </Link>
+                                        <Link className="pr-2" to="/" title="Edit">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </Link>
                                         </td>
                                     </tr>
                                 )

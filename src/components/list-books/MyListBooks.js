@@ -4,8 +4,8 @@ import SidebarDash from '../list-books/SidebarDash'
 
 function MyListBooks() {
     return (
-        <div className="wrapper">
-            <section className="wdth100 bg-gry">
+        <div className="wrapper height_my_wrapper">
+            <section className="height-100vh wdth100 bg-gry">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 pb-50 pt-50">
@@ -20,7 +20,7 @@ function MyListBooks() {
                                                         <h4 className="mb-15">Your Books Listing</h4>
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <Link to="/" className="button float-right">+ Add New Book</Link>
+                                                        <Link to="/list-books" className="button float-right">+ Add New Book</Link>
                                                     </div>
                                                     <div className="clearfix"></div>
                                                 </div>
@@ -47,10 +47,10 @@ function MyListBooks() {
                                                                     <td className="text-success">Active</td>
                                                                     <td>
                                                                         <Link className="pr-2" to="/" title="Edit">
-                                                                            <i className="fa fa-edit"></i>
+                                                                            <ion-icon name="create-outline"></ion-icon>
                                                                         </Link>
-                                                                        <Link to="/" title="Delete">
-                                                                            <i className="fa fa-trash-o text-danger"></i>
+                                                                        <Link className="pr-2" to="/" title="Edit">
+                                                                            <ion-icon name="trash-outline"></ion-icon>
                                                                         </Link>
                                                                     </td>
                                                                 </tr>

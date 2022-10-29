@@ -3612,6 +3612,7 @@ tbody.collapse.show {
 .breadcrumb {
   display: -webkit-box;
   display: -ms-flexbox;
+  margin: 0px;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
