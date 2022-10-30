@@ -16,18 +16,14 @@ const SideProfile = () => {
                                     <div className="dropdown-header">
                                         <div className="media">
                                             <div className="media-body">
-                                                <h5 className="mt-0 mb-0">Manjeet Singh</h5> <span>manjeet@gmail.com</span>
+                                                <h5 className="mt-0 mb-0">Sawn</h5> <span>sawn@gmail.com</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="#"><i
-                                        className="text-warning ti-user"></i>Profile</Link>
-                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="#"><i
-                                        className="text-warning ti-user"></i>My Order</Link>
-                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="#"><i
-                                        className="text-warning ti-user"></i>Change Password</Link>
-                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="#"><i
-                                        className="text-danger ti-unlock"></i>Logout</Link>
+                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="/">Profile</Link>
+                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="/">My Order</Link>
+                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="/">Change Password</Link>
+                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="/">Logout</Link>
                                 </div>
                             </li>
                         </ul>

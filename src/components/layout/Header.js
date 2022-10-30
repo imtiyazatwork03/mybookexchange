@@ -13,7 +13,6 @@ const Header = ({ showAddInfo, showLogin, sideProfile }) => {
                         </Link>
                         <nav className="middleNav">
                             <Link to="/aboutus">About</Link>
-                            <Link to="/useragreement">User Agreement</Link>
                             <Link to="/updates">Updates</Link>
                             <Link to="/contactus">Contact Us</Link>
                         </nav>

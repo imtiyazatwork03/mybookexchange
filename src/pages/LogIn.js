@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import Breadcrumb from "../components/common/Breadcrumb";
 
-function LogIn() {
+const LogIn = () => {
+    const breadcrumbs = [
+        { name: 'Dashboard', active: true, route: '/dashboard' },
+        { name: 'Login', active: false },
+    ]
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePasswordVisiblity = () => {
+        setPasswordShown(passwordShown ? false : true);
+    };
     return (
         <div className="wrapper">
             <Header showAddInfo={true} />
+            <Breadcrumb breadcrumbs={breadcrumbs} />
             <section className="height-100vh d-flex align-items-center page-section-ptb forget-screen">
                 <div className="container">
                     <div className="row justify-content-center no-gutters vertical-align">
@@ -22,19 +32,20 @@ function LogIn() {
                                     <input
                                         type="text"
                                         name="username"
-                                        placeholder="User Name"
+                                        placeholder="Username"
                                         id="username"
                                         className="required form-control"
                                     />
                                 </div>
-                                <div className="section-field mt-20 mb-20">
+                                <div className="section-field mt-20 mb-20" style={{ position: 'relative', display: 'flex' }}>
                                     <input
-                                        type="password"
+                                        type={passwordShown ? "text" : "password"}
                                         placeholder="Password"
                                         id="password"
                                         className=" form-control"
                                         name="password"
                                     />
+                                    <ion-icon onClick={togglePasswordVisiblity} name="eye-outline" style={{ position: 'absolute', right: '10px', top: '18px', cursor: 'pointer' }}></ion-icon>
                                 </div>
                                 <p className="mt-20 mb-20 text-right">
                                     <Link to="/forgot-password">Forgot Password?</Link>
@@ -43,7 +54,7 @@ function LogIn() {
                                     Login
                                 </Link>{" "}
                                 <p className="mt-20 mb-0 dnthvAcnt">
-                                    Don't have an account?
+                                    Don't have an account?{" "}
                                     <Link to="/register">
                                         <b>Join Now</b>
                                     </Link>

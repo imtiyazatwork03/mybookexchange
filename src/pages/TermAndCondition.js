@@ -4,10 +4,14 @@ import Footer from '../components/layout/Footer';
 import Breadcrumb from '../components/common/Breadcrumb';
 
 function TermAndCondition() {
+    const breadcrumbs = [
+        { name: 'Dashboard', active: true, route: '/dashboard' },
+        { name: 'Term and condition', active: false  },
+    ]
     return (
         <div className="wrapper">
             <Header showAddInfo={true} />
-            <Breadcrumb />
+            <Breadcrumb breadcrumbs={breadcrumbs}/>
             <section className="pt-50 bg-white privcyPolicy">
                 <div className="container">
                     <div className="row pb-50">

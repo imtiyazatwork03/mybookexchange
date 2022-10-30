@@ -27,7 +27,7 @@ function BooksTable() {
     ]
     return (
         <aside className="col-md-9 col-lg-9 ">
-            <h6 className="mb-20 bold">Books Selected</h6>
+            <h6 className="mb-20 bold">Books selected</h6>
             <div className="card-body bg-white box-shadow card mb-50">
                 <div className="table-responsive mt-20">
                     <table className="table center-aligned-table">
@@ -36,7 +36,7 @@ function BooksTable() {
                                 <th>Title</th>
                                 <th>Price</th>
                                 <th>Discount </th>
-                                <th> Net Pay </th>
+                                <th> Net pay </th>
                                 <th></th>
                             </tr>
                         </thead>

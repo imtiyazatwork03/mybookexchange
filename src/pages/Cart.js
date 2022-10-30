@@ -5,18 +5,18 @@ import Footer from '../components/layout/Footer'
 import Breadcrumb from '../components/common/Breadcrumb';
 
 const Cart = () => {
-  const breadcrumbs = [
-    { name: 'Dashboard', active: true, route: '/dashboard' },
-    { name: 'cart', active: false  },
-  ]
-  return (
-    <>
-      <Header showAddInfo={true} showLogin={false} sideProfile={true}/>
-      <Breadcrumb breadcrumbs={breadcrumbs}/>
-      <CartTable />
-      <Footer />
-    </>
-  )
+    const breadcrumbs = [
+        { name: 'Dashboard', active: true, route: '/dashboard' },
+        { name: 'cart', active: false },
+    ]
+    return (
+        <div className="wrapper">
+            <Header showAddInfo={true} showLogin={false} sideProfile={true} />
+            <Breadcrumb breadcrumbs={breadcrumbs} />
+            <CartTable />
+            <Footer />
+        </div>
+    )
 }
 
 export default Cart

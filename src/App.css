@@ -19077,7 +19077,7 @@ button {
   letter-spacing: 0px;
   border: 0;
   color: #ffffff!important;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   font-weight: 500;
   display: inline-block;
   text-align: center;
