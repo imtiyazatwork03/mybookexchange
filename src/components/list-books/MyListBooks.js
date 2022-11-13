@@ -1,8 +1,22 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 import SidebarDash from '../list-books/SidebarDash'
+import { deleteBook } from '../../store/actions/book.action'
+import { toast } from 'react-toastify'
 
-function MyListBooks() {
+const MyListBooks = ({ books }) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const removeBook = async (book) => {
+        const result = await dispatch(deleteBook(book?.id));
+        const { success, reason } = result;
+        if (success) toast.success(reason);
+        else toast.error(reason);
+    }
+    const editBook = (book) => {
+        navigate(`/list-books/${book.id}`);
+    }
     return (
         <div className="wrapper height_my_wrapper">
             <section className="height-100vh wdth100 bg-gry">
@@ -32,28 +46,26 @@ function MyListBooks() {
                                                                 <tr className="text-dark">
                                                                     <th>Title</th>
                                                                     <th>Author</th>
-                                                                    <th>Book Type</th>
-                                                                    <th>Category</th>
-                                                                    <th>Status</th>
                                                                     <th>Action</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>Applied Physics</td>
-                                                                    <td>Palani Swamy</td>
-                                                                    <td>Regular</td>
-                                                                    <td>Art</td>
-                                                                    <td className="text-success">Active</td>
-                                                                    <td>
-                                                                        <Link className="pr-2" to="/" title="Edit">
-                                                                            <ion-icon name="create-outline"></ion-icon>
-                                                                        </Link>
-                                                                        <Link className="pr-2" to="/" title="Edit">
-                                                                            <ion-icon name="trash-outline"></ion-icon>
-                                                                        </Link>
-                                                                    </td>
-                                                                </tr>
+                                                                {
+                                                                    books.map((prop, key) => {
+                                                                        return (<tr key={key}>
+                                                                            <td>{prop?.title}</td>
+                                                                            <td>{prop?.author}</td>
+                                                                            <td>
+                                                                                <span className="pr-2" title="Edit" style={{ cursor: 'pointer' }}>
+                                                                                    <ion-icon name="create-outline" onClick={() => editBook(prop)}></ion-icon>
+                                                                                </span>
+                                                                                <span className="pr-2" title="Edit" style={{ cursor: 'pointer' }}>
+                                                                                    <ion-icon name="trash-outline" onClick={() => removeBook(prop)}></ion-icon>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>)
+                                                                    })
+                                                                }
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -71,4 +83,4 @@ function MyListBooks() {
     )
 }
 
-export default MyListBooks
+export default MyListBooks;

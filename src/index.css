@@ -9,3 +9,4 @@ body {
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'style.css';
 @import 'style-responsive.css';
+@import 'react-toastify/dist/ReactToastify.css';

@@ -1,8 +1,11 @@
 import React from 'react'
 import SidebarDash from './SidebarDash'
 import BookForm from './BookForm'
+import { bookDetail } from '../../store/selectors/book.selector';
+import { useSelector } from 'react-redux';
 
-const ListBooksSidebar = () => {
+const ListBooksSidebar = ({id}) => {
+    const book = useSelector(bookDetail);
     return (
         <div className="wrapper">
             <section className="wdth100 bg-gry">
@@ -12,7 +15,7 @@ const ListBooksSidebar = () => {
                             <div className="chat-section ">
                                 <div className="row ">
                                     <SidebarDash />
-                                    <BookForm />
+                                    <BookForm book={book} id={id}/>
                                 </div>
                             </div>
                         </div>

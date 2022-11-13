@@ -6,11 +6,19 @@ import ListBook from "../components/dashboard/ListBook";
 import ManageBook from "../components/dashboard/ManageBook";
 import Profile from "../components/dashboard/Profile";
 import Search from "../components/home/Search";
+import Breadcrumb from "../components/common/Breadcrumb";
+import { useSelector } from 'react-redux';
+import { userProfile } from '../store/selectors/auth.selector';
 
 const Dashboard = () => {
+    const breadcrumbs = [
+        { name: 'Dashboard', active: false },
+    ]
+    const profile = useSelector(userProfile);
     return (
         <>
-            <Header showAddInfo={true} />
+            <Header showAddInfo={true} sideProfile={true} />
+            <Breadcrumb breadcrumbs={breadcrumbs} />
             <div className="wrapper">
                 <section className="wdth100 bg-gry">
                     <div className="container">
@@ -22,7 +30,7 @@ const Dashboard = () => {
                                         <aside className="col-md-9 col-lg-9">
                                             <div className="row pb-20">
                                                 <div className="col-md-12 ">
-                                                    <h4>Welcome: Sawn</h4>
+                                                    <h4>Welcome: {profile?.name}</h4>
                                                     <hr className="mt-30 mb-30" />
                                                 </div>
                                                 <div className="col-md-12 ">

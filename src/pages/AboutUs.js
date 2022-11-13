@@ -5,7 +5,7 @@ import Breadcrumb from "../components/common/Breadcrumb";
 
 const AboutUs = () => {
     const breadcrumbs = [
-        { name: 'Dashboard', active: true, route: '/dashboard' },
+        { name: 'Dashboard', active: true, route: '/' },
         { name: 'Privacy policy', active: false },
     ]
     return (

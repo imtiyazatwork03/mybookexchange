@@ -5,7 +5,7 @@ import Breadcrumb from '../components/common/Breadcrumb';
 
 function ForgotPassword() {
     const breadcrumbs = [
-        { name: 'Dashboard', active: true, route: '/dashboard' },
+        { name: 'Dashboard', active: true, route: '/' },
         { name: 'Forget password', active: false },
     ]
     return (

@@ -5,7 +5,7 @@ import Search from './Search';
 function Main() {
     return (
         <section className="mainHmSec">
-            <div className="container">
+            <div className="container height-100vh">
                 <div className="row no-gutters">
                     <div className="col-lg-12 col-md-12 text-center mb-20">
                         <Link className="" to="/">
@@ -23,11 +23,6 @@ function Main() {
                         <Link to="/" className="button">General Books</Link>
                         <Link to="/" className="button">Text Books</Link>
                     </div>
-                </div>
-            </div>
-            <div className="row no-gutters">
-                <div className="col-lg-12 col-md-12">
-                    <img src="images/hm-books.png" alt="hm-books" className="hm-books" />
                 </div>
             </div>
         </section>

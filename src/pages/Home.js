@@ -5,14 +5,14 @@ import Banner from '../components/home/Banner';
 import Main from '../components/home/Main';
 
 const Home = () => {
-  return (
-    <div className="wrapper">
-      <Banner />
-      <Header showAddInfo={false}  showLogin={true} />
-      <Main />
-      <Footer />
-    </div>
-  )
+    return (
+        <div className="wrapper">
+            <Banner />
+            <Header showAddInfo={false} showLogin={true} />
+            <Main />
+            <Footer />
+        </div>
+    )
 }
 
 export default Home

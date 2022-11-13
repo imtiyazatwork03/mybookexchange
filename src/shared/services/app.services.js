@@ -1,0 +1,15 @@
+import instance from "../instance";
+export const register = (payload) => instance.post("customer/register", payload);
+export const profileUpdate = (payload) => instance.post("customer/profile_update", payload);
+export const login = (payload) => instance.post("customer/login", payload);
+export const logInWithGoogle = (payload) => instance.post("customer/google-login", payload);
+export const logInWithFacebook = (payload) => instance.post("customer/facebook-login", payload);
+export const profile = () => instance.get("customer/profile");
+export const stateList = () => instance.get("customer/states");
+export const bookList = () => instance.get("customer/book");
+export const addBook = (payload) => instance.post("customer/book", payload);
+export const updateBookDetail = (payload, id) => instance.post(`customer/book/${id}`, payload);
+export const removeBook = (payload) => instance.delete(`customer/book/${payload}`);
+export const bookDetail = (payload) => instance.get(`customer/book/${payload}`);
+export const bookTypes = () => instance.get('customer/type');
+export const bookCategories = () => instance.get('customer/category');

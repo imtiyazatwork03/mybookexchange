@@ -6,7 +6,7 @@ import Breadcrumb from "../components/common/Breadcrumb";
 
 const Register = () => {
     const breadcrumbs = [
-        { name: 'Dashboard', active: true, route: '/dashboard' },
+        { name: 'Dashboard', active: true, route: '/' },
         { name: 'Register', active: false },
     ]
     return (
