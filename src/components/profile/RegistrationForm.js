@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from "react-redux";
-import { onKeyPress } from '../../utils/util';
+// import { onKeyPress } from '../../utils/util';
 import { signUp } from '../../store/actions/auth.action';
-import Select from 'react-select';
+// import Select from 'react-select';
 import './profile.css';
 import { stateList } from '../../store/selectors/auth.selector';
 
 const RegistrationForm = () => {
-    const [selectedOption, setSelectedOption] = useState(null);
+    // const [selectedOption, setSelectedOption] = useState(null);
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const options = useSelector(stateList);
@@ -48,13 +48,13 @@ const RegistrationForm = () => {
         validateInput(e);
     }
 
-    const stateChange = (state) => {
-        setSelectedOption(state)
-        setInput(prev => ({
-            ...prev,
-            state: state.id
-        }));
-    }
+    // const stateChange = (state) => {
+    //     setSelectedOption(state)
+    //     setInput(prev => ({
+    //         ...prev,
+    //         state: state.id
+    //     }));
+    // }
 
     const validateInput = e => {
         let { name, value } = e.target;
@@ -95,23 +95,23 @@ const RegistrationForm = () => {
             return stateObj;
         });
     }
-    const customStyles = {
-        option: (provided, state) => ({
-            ...provided,
-            color: state.isSelected ? 'white' : 'black',
-            padding: 10,
-        }),
-        control: () => ({
-            background: '#f6f7f8',
-            display: 'flex',
-            height: '48px'
-        }),
-        singleValue: (provided, state) => {
-            const opacity = state.isDisabled ? 0.5 : 1;
-            const transition = 'opacity 300ms';
-            return { ...provided, opacity, transition };
-        }
-    }
+    // const customStyles = {
+    //     option: (provided, state) => ({
+    //         ...provided,
+    //         color: state.isSelected ? 'white' : 'black',
+    //         padding: 10,
+    //     }),
+    //     control: () => ({
+    //         background: '#f6f7f8',
+    //         display: 'flex',
+    //         height: '48px'
+    //     }),
+    //     singleValue: (provided, state) => {
+    //         const opacity = state.isDisabled ? 0.5 : 1;
+    //         const transition = 'opacity 300ms';
+    //         return { ...provided, opacity, transition };
+    //     }
+    // }
     const formSubmit = async (event) => {
         event.preventDefault();
         const user = await dispatch(signUp(input));
@@ -122,17 +122,18 @@ const RegistrationForm = () => {
         } else toast.error(reason);
     }
     return (
-        <section className="pt-50 pb-50 d-flex align-items-center page-section-ptb forget-screen" >
+        <section className="height-100vh pt-50 pb-50 d-flex align-items-center page-section-ptb forget-screen" >
             <div className="container">
                 <div className="row justify-content-center no-gutters vertical-align">
                     <div className="col-lg-8 col-md-6 bg-white">
                         <div className="pt-30 pr-30 pb-30 pl-30 clearfix text-center">
-                            <img src="/images/register-member.png" alt="member" className="mb-20" />
+                            {/* <img src="/images/register-member.png" alt="member" className="mb-20" /> */}
                             <h4>Member Registration</h4>
+                            <hr className="mt-20 mb-10" />
                             <form className="text-left" onSubmit={formSubmit}>
                                 <div className="form-row mt-20 mb-20">
                                     <div className=" col-md-6">
-                                        <label htmlFor="firstName">First name *</label>
+                                        {/* <label htmlFor="firstName">First name *</label> */}
                                         <input
                                             type="text"
                                             name="firstName"
@@ -145,7 +146,7 @@ const RegistrationForm = () => {
                                         {error.firstName && <span className='err'>{error.firstName}</span>}
                                     </div>
                                     <div className=" col-md-6">
-                                        <label htmlFor="lastName">Last name *</label>
+                                        {/* <label htmlFor="lastName">Last name *</label> */}
                                         <input
                                             type="text"
                                             name="lastName"
@@ -160,7 +161,7 @@ const RegistrationForm = () => {
                                 </div>
                                 <div className="form-row mt-20 mb-20">
                                     <div className="form-group col-md-6">
-                                        <label htmlFor="email">Email *</label>
+                                        {/* <label htmlFor="email">Email *</label> */}
                                         <input
                                             type="email"
                                             name="email"
@@ -174,7 +175,7 @@ const RegistrationForm = () => {
                                         {error.email && <span className='err'>{error.email}</span>}
                                     </div>
                                     <div className=" col-md-6">
-                                        <label htmlFor="username">Username *</label>
+                                        {/* <label htmlFor="username">Username *</label> */}
                                         <input
                                             type="text"
                                             name="username"
@@ -189,7 +190,7 @@ const RegistrationForm = () => {
                                 </div>
                                 <div className="form-row mt-20 mb-20">
                                     <div className="form-group col-md-6">
-                                        <label htmlFor="password">Password *</label>
+                                        {/* <label htmlFor="password">Password *</label> */}
                                         <input
                                             type="password"
                                             name="password"
@@ -203,7 +204,7 @@ const RegistrationForm = () => {
                                         {error.password && <span className='err'>{error.password}</span>}
                                     </div>
                                     <div className="form-group col-md-6">
-                                        <label htmlFor="confirmPassword">Confirm password *</label>
+                                        {/* <label htmlFor="confirmPassword">Confirm password *</label> */}
                                         <input
                                             type="password"
                                             name="confirmPassword"
@@ -217,7 +218,7 @@ const RegistrationForm = () => {
                                         {error.confirmPassword && <span className='err'>{error.confirmPassword}</span>}
                                     </div>
                                 </div>
-                                <div className="form-group  mt-20 mb-20">
+                                {/* <div className="form-group  mt-20 mb-20">
                                     <label htmlFor="address1">Address 1</label>
                                     <input
                                         type="text"
@@ -289,7 +290,7 @@ const RegistrationForm = () => {
                                             id="zip"
                                             placeholder='Zip' />
                                     </div>
-                                </div>
+                                </div> */}
                                 <button type="submit" className="button">Sign up</button>
                             </form>
                             <p className="mt-20 mb-0 dnthvAcnt">

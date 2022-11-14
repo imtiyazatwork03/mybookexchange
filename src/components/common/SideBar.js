@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 function SideBar() {
     return (
         <aside className="col-md-3 col-lg-3 pb-50">
-            <h5 className="bold border-bottom pb-20">Dashboard</h5>
+            {/* <h5 className="bold border-bottom pb-20"></h5> */}
             <div className="card-body p-0">
                 <ul className="gttl">
                     <li>
-                        <Link to="/">Find a Book</Link>
+                        <Link to="/">Dashboard</Link>
                     </li>
                     <li>
-                        <Link to="/list-books">Want to List Book</Link>
+                        <Link to="/list-books">List Book</Link>
                     </li>
                     <li>
-                        <Link to="/my-listing-books">Manage Book Listing</Link>
+                        <Link to="/my-listing-books">Book Listing</Link>
                     </li>
                     <li>
                         <Link to="/profile">Edit Membership</Link>

@@ -72,6 +72,9 @@ b, strong {
     padding: 5px 15px;
 }
 .button.yellow{color: #626262!important;background: #fade2e;border-color: #fade2e;}
+.button.yellow:hover {
+   color: white !important;
+}
 .main-header .rightNav .button.regstr {
 }
 

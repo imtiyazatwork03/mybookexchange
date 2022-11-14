@@ -6,7 +6,7 @@ import Breadcrumb from '../components/common/Breadcrumb';
 function TermAndCondition() {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Term and condition', active: false  },
+        { name: 'Term and condition', active: true, route: '/term-and-condition' },
     ]
     return (
         <div className="wrapper">

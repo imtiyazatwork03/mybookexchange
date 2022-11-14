@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { updateProfile } from "../../store/actions/auth.action";
 import { toast } from "react-toastify";
 
-function ShowProfile({profile}) {
+function ShowProfile({ profile }) {
     return (
         <div>
             <div className="wrapper">
@@ -31,7 +31,7 @@ function ShowProfile({profile}) {
     );
 }
 
-const ProfileInfo = ({profile}) => {
+const ProfileInfo = ({ profile }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const options = useSelector(stateList);
@@ -128,10 +128,11 @@ const ProfileInfo = ({profile}) => {
                 state: state?.id,
                 zip
             });
-            setSelectedOption(state)
+            setSelectedOption(state);
             setInput({ ...input, ...obj });
         }
-    }, [profile, input]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [profile]);
 
     const formSubmit = async (event) => {
         event.preventDefault();
@@ -149,9 +150,9 @@ const ProfileInfo = ({profile}) => {
                 <div className="col-md-12 ">
                 </div>
                 <div className="col-md-12 card pt-40 pb-30 pl-20 pr-20 clearfix text-center">
-                    <div className="text-center">
+                    {/* <div className="text-center">
                         <img src="/images/register-member.png" alt="member" className="mb-20" style={{width: '109px',  height: '109px'}}/>
-                    </div>
+                    </div> */}
                     <h4>Member Update</h4>
                     <hr className="mt-20 mb-10" />
                     <div className="card-body">
@@ -167,7 +168,7 @@ const ProfileInfo = ({profile}) => {
                                         onChange={onInputChange}
                                         onBlur={validateInput}
                                         placeholder="First name"
-                                        required/>
+                                        required />
                                     {error.firstName && <span className='err'>{error.firstName}</span>}
                                 </div>
                                 <div className=" col-md-6">
@@ -180,7 +181,7 @@ const ProfileInfo = ({profile}) => {
                                         onChange={onInputChange}
                                         onBlur={validateInput}
                                         placeholder="Last name"
-                                        required/>
+                                        required />
                                     {error.lastName && <span className='err'>{error.lastName}</span>}
                                 </div>
                             </div>
@@ -196,7 +197,7 @@ const ProfileInfo = ({profile}) => {
                                         onBlur={validateInput}
                                         id="email"
                                         placeholder="Email"
-                                        required/>
+                                        required />
                                     {error.email && <span className='err'>{error.email}</span>}
                                 </div>
                                 <div className=" col-md-6">
@@ -209,7 +210,7 @@ const ProfileInfo = ({profile}) => {
                                         onChange={onInputChange}
                                         onBlur={validateInput}
                                         placeholder="Username"
-                                        required/>
+                                        required />
                                     {error.username && <span className='err'>{error.username}</span>}
                                 </div>
                             </div>
@@ -223,7 +224,7 @@ const ProfileInfo = ({profile}) => {
                                     onChange={onInputChange}
                                     onBlur={validateInput}
                                     id="address1"
-                                    placeholder="Address 1"/>
+                                    placeholder="Address 1" />
                             </div>
                             <div className="form-group mt-20 mb-20">
                                 <label htmlFor="address2">Address 2</label>
@@ -235,7 +236,7 @@ const ProfileInfo = ({profile}) => {
                                     onChange={onInputChange}
                                     onBlur={validateInput}
                                     id="address2"
-                                    placeholder="Address 2"/>
+                                    placeholder="Address 2" />
                             </div>
                             <div className="form-row mt-20 mb-20">
                                 <div className="form-group col-md-6">
@@ -282,7 +283,7 @@ const ProfileInfo = ({profile}) => {
                                         onChange={onInputChange}
                                         onBlur={validateInput}
                                         id="zip"
-                                        placeholder='Zip'/>
+                                        placeholder='Zip' />
                                 </div>
                             </div>
                             <button type="submit" className="button">Upadte</button>

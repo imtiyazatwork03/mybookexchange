@@ -9,3 +9,13 @@ export const bookList = createSelector(books, list => list || []);
 export const bookDetail = createSelector(book, prop => prop);
 export const bookTypeList = createSelector(types, list => list || []);
 export const BookCategories = createSelector(categories, list => list || []);
+export const BookSelectedCategories = createSelector([types, categories], (typesProp, categoriesProp) => {
+    let typesData = JSON.parse(JSON.stringify(typesProp || []));
+    if (typesData?.length && categoriesProp?.length) {
+        typesData.forEach(prop => {
+            const categoriesData = categoriesProp.filter(cat => cat.type_id === prop.id);
+            prop['categories'] = categoriesData;
+        });
+    }
+    return typesData;
+});

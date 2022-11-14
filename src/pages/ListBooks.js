@@ -12,7 +12,7 @@ export const ListBooks = () => {
     const dispatch = useDispatch();
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'List Book', active: false, },
+        { name: 'List Book', active: true, route: 'list-books' },
     ]
     useEffect(() => {
         if (id) dispatch(getBook(id));
@@ -20,8 +20,8 @@ export const ListBooks = () => {
     }, [id, dispatch])
     return (
         <>
-            <Header showAddInfo={true} sideProfile={true}/>
-            <Breadcrumb breadcrumbs={breadcrumbs}/>
+            <Header showAddInfo={true} sideProfile={true} />
+            <Breadcrumb breadcrumbs={breadcrumbs} />
             <ListBooksSidebar id={id} />
             <Footer />
         </>

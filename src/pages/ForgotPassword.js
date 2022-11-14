@@ -6,7 +6,7 @@ import Breadcrumb from '../components/common/Breadcrumb';
 function ForgotPassword() {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Forget password', active: false },
+        { name: 'Forget password', active: true, route: '/forgot-password' },
     ]
     return (
         <div className="wrapper">
@@ -17,7 +17,7 @@ function ForgotPassword() {
                     <div className="row justify-content-center no-gutters vertical-align">
                         <div className="col-lg-4 col-md-6 bg-white">
                             <div className="pt-30 pr-30 pb-30 pl-30 clearfix text-center">
-                                <img src="images/icon-forget-pswrd.png" alt="forgot" className="mb-20" />
+                                {/* <img src="images/icon-forget-pswrd.png" alt="forgot" className="mb-20" /> */}
                                 <h4>Forgot your password ?</h4>
                                 <p>Enter your email address and we'll send you a new password</p>
                                 <div className="section-field mt-20 mb-20">

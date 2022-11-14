@@ -12,7 +12,7 @@ import { Auth, Google } from '../utils/firebase';
 const LogIn = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Login', active: false },
+        { name: 'Login', active: true, route: '/login' },
     ]
     const [passwordShown, setPasswordShown] = useState(false);
     const [input, setInput] = useState({});
@@ -40,7 +40,7 @@ const LogIn = () => {
             navigate('/dashboard')
         } else toast.error(reason);
     }
-    const logInWithGoogle = async() => {
+    const logInWithGoogle = async () => {
         const result = await signInWithPopup(Auth, Google);
         const { displayName, uid, email } = result.user;
         const postData = { email, google_id: uid, name: displayName };
@@ -71,13 +71,24 @@ const LogIn = () => {
                     <div className="row justify-content-center no-gutters vertical-align">
                         <div className="col-lg-4 col-md-6 bg-white">
                             <div className="pt-30 pr-30 pb-30 pl-30 clearfix text-center">
-                                <img
+                                {/* <img
                                     src="images/icon-forget-pswrd.png"
                                     className="mb-20"
                                     alt="forgot-password"
-                                />
+                                /> */}
                                 <h4>Login Account</h4>
-                                <form className="text-left"  onSubmit={formSubmit}>
+                                <hr className="mt-20 mb-10" />
+                                <div className="mb-10">
+                                    <button type="button" className="button" onClick={logInWithGoogle}>
+                                        <ion-icon name="logo-google"></ion-icon> Continue using google
+                                    </button>
+                                </div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '50%', borderBottom: '1px solid #c1cad4', marginBottom: '10px' }}></div>
+                                    <div style={{ paddingRight: '10px', paddingLeft: '10px' }}>OR</div>
+                                    <div style={{ width: '50%', borderBottom: '1px solid #c1cad4', marginBottom: '10px' }}></div>
+                                </div>
+                                <form className="text-left" onSubmit={formSubmit}>
                                     <div className="section-field mt-20 mb-20">
                                         <input
                                             type="email"
@@ -106,11 +117,6 @@ const LogIn = () => {
                                     </p>
                                     <div className="mb-10">
                                         <button type="submit" className="button">Login</button>
-                                    </div>
-                                    <div className="mb-10">
-                                        <button type="button" className="button" onClick={logInWithGoogle}>
-                                            <ion-icon name="logo-google"></ion-icon> Login with google
-                                        </button>
                                     </div>
                                     {/* <button type="button" className="button" onClick={logInWithFacebook}>
                                         <ion-icon name="logo-facebook"></ion-icon> Login with facebook

@@ -1,5 +1,5 @@
 import * as actionTypes from '../types/auth.type';
-import { register, login, logInWithGoogle, logInWithFacebook, profile, profileUpdate, stateList } from '../../shared/services/app.services';
+import { register, login, logInWithGoogle, logInWithFacebook, profile, profileUpdate, logout, stateList } from '../../shared/services/app.services';
 
 export const signUp = payload => dispatch => {
     dispatch({ type: actionTypes.SIGNUP, payload: undefined });
@@ -57,6 +57,24 @@ export const signInWithFacebook = payload => dispatch => {
         return response.data;
     }, error => {
         dispatch({ type: actionTypes.SIGNIN_WITH_FACEBOOK_FAILURE, payload: { message: 'Error please check data!' } });
+        return error.response.data;;
+    });
+};
+
+export const userLogout = payload => dispatch => {
+    dispatch({ type: actionTypes.LOGOUT, payload: undefined });
+    return logout(payload).then(response => {
+        const { success, data } = response.data;
+        if (success) {
+            dispatch({ type: actionTypes.LOGOUT_SUCCESS, payload: data.data });
+            dispatch({ type: actionTypes.PROFILE, payload: undefined });
+            dispatch({ type: actionTypes.SIGNIN, payload: undefined });
+            dispatch({ type: actionTypes.SIGNUP, payload: undefined });
+            localStorage.clear();
+        }
+        return response.data;
+    }, error => {
+        dispatch({ type: actionTypes.LOGOUT_FAILURE, payload: { message: 'Error please check data!' } });
         return error.response.data;;
     });
 };

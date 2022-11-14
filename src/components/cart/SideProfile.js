@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userProfile } from '../../store/selectors/auth.selector';
+import { userLogout } from '../../store/actions/auth.action';
 
 const SideProfile = () => {
+    const dispatch = useDispatch();
     const profile = useSelector(userProfile);
+    const logout = async() => {
+        await dispatch(userLogout({}));
+    }
     return (
         <div>
             <header className="admin-header">
@@ -22,9 +27,9 @@ const SideProfile = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="/">Profile</Link>
-                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="/">My Order</Link>
-                                    <div className="dropdown-divider"></div> <Link className="dropdown-item" to="/">Logout</Link>
+                                    <div className="dropdown-divider"></div> <span className="dropdown-item" style={{cursor: 'pointer'}}>Profile</span>
+                                    <div className="dropdown-divider"></div> <span className="dropdown-item" style={{cursor: 'pointer'}}>My Order</span>
+                                    <div className="dropdown-divider"></div> <span className="dropdown-item" style={{cursor: 'pointer'}} onClick={logout}>Logout</span>
                                 </div>
                             </li>
                         </ul>

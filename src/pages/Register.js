@@ -7,7 +7,7 @@ import Breadcrumb from "../components/common/Breadcrumb";
 const Register = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Register', active: false },
+        { name: 'Register', active: true, route: '/register' },
     ]
     return (
         <div className="wrapper">
@@ -18,7 +18,7 @@ const Register = () => {
                     <div className="row no-gutters">
                         <div className="col-lg-12">
                             <h2 className="mb-20 text-center">
-                                Before Register Tell us about yourself
+                                Before register tell us about yourself
                             </h2>
                             <div className="col-lg-8 col-md-6 clearfix registerInfo mb-30">
                                 <p className="text-center">

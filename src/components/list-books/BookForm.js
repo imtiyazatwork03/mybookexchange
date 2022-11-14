@@ -5,11 +5,13 @@ import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { BookCategories, bookTypeList } from '../../store/selectors/book.selector';
+import { BookSelectedCategories } from '../../store/selectors/book.selector';
 
 const BookForm = ({ book, id }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [bookTypes, setBookTypes] = useState([]);
+    const [bookCategories, setBookCategories] = useState([]);
     const [selectedCondition, setSelectedCondition] = useState(null);
     const [selectedBook, setSelectedBook] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -38,20 +40,29 @@ const BookForm = ({ book, id }) => {
     useEffect(() => {
         dispatch(getBookTypes());
         dispatch(getBookCategories());
+    }, [dispatch]);
+    const books = useSelector(BookSelectedCategories);
+    useEffect(() => {
+        setBookTypes(books);
         if (book?.id) {
-            const { title, author, isbn, quantity, type, book_condition } = book;
+            const { title, author, isbn, quantity, type, category, book_condition } = book;
+            const categories =books.filter(prop => prop?.id === type?.id)[0]?.categories;
             const obj = Object.assign({}, {
                 title,
                 author,
                 isbn,
                 quantity,
                 type_id: type?.id,
+                category_id: category?.id,
                 book_condition
             });
             setSelectedBook(type);
+            setBookCategories(categories || []);
+            setSelectedCategory(category);
             setSelectedCondition(conditions.find(con => con.id === +book_condition))
             setInput({ ...input, ...obj });
         } else {
+            setBookCategories(books[0]?.categories || []);
             setInput(
                 {
                     title: '',
@@ -59,23 +70,21 @@ const BookForm = ({ book, id }) => {
                     isbn: '',
                     quantity: '',
                     book_condition: conditions[0]?.id,
-                    type_id: books[0]?.id,
-                    category_id: categories[0]?.id
+                    type_id: bookTypes[0]?.id,
+                    category_id: bookCategories[0]?.id
                 }
             )
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [book?.id, book, dispatch]);
-    const books = useSelector(bookTypeList);
-    const categories = useSelector(BookCategories);
+    }, [book?.id, book, books, dispatch]);
     const [input, setInput] = useState({
         title: '',
         author: '',
         isbn: '',
         quantity: '',
         book_condition: conditions[0]?.id,
-        type_id: books[0]?.id,
-        category_id: categories[0]?.id
+        type_id: bookTypes[0]?.id,
+        category_id: bookCategories[0]?.id
     });
     const [error, setError] = useState({
         title: '',
@@ -83,8 +92,8 @@ const BookForm = ({ book, id }) => {
         isbn: '',
         quantity: '',
         book_condition: conditions[0]?.id,
-        type_id: books[0]?.id,
-        category_id: categories[0]?.id
+        type_id: bookTypes[0]?.id,
+        category_id: bookCategories[0]?.id
     })
     const onInputChange = e => {
         const { name, value } = e.target;
@@ -120,6 +129,7 @@ const BookForm = ({ book, id }) => {
         });
     }
     const changeBookType = (type) => {
+        setBookCategories(type?.categories);
         setSelectedBook(type);
         setInput(prev => ({
             ...prev,
@@ -253,8 +263,8 @@ const BookForm = ({ book, id }) => {
                                     <label htmlFor="BookType">BookType</label>
                                     <Select
                                         styles={customStyles}
-                                        value={selectedBook || books[0]}
-                                        options={books}
+                                        value={selectedBook || bookTypes[0]}
+                                        options={bookTypes}
                                         isSearchable={true}
                                         placeholder="select"
                                         name="type_id"
@@ -275,8 +285,8 @@ const BookForm = ({ book, id }) => {
                                     <label htmlFor="categories">Category</label>
                                     <Select
                                         styles={customStyles}
-                                        value={selectedCategory || categories[0]}
-                                        options={categories}
+                                        value={selectedCategory || bookCategories[0]}
+                                        options={bookCategories}
                                         isSearchable={true}
                                         placeholder="select"
                                         name="category_id"

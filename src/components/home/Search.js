@@ -25,7 +25,7 @@ const Search = () => {
         }
     }
     return (
-        <div className="col-md-12 bg-white main-searchbar mt-30 mb-30">
+        <div className="col-md-12 bg-white main-searchbar mb-30">
             <div className="pt-10 pr-10 pb-10 pl-10">
                 <div className="widget lookingfor">
                     <input type="search" className="form-control" placeholder="Search..." />

@@ -7,7 +7,7 @@ import Breadcrumb from '../components/common/Breadcrumb';
 const Cart = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'cart', active: false },
+        { name: 'cart', active: true, route: '/cart' },
     ]
     return (
         <div className="wrapper">

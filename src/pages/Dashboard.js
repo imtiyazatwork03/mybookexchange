@@ -2,25 +2,22 @@ import React from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import SideBar from "../components/common/SideBar";
-import ListBook from "../components/dashboard/ListBook";
-import ManageBook from "../components/dashboard/ManageBook";
-import Profile from "../components/dashboard/Profile";
+// import ListBook from "../components/dashboard/ListBook";
+// import ManageBook from "../components/dashboard/ManageBook";
+// import Profile from "../components/dashboard/Profile";
 import Search from "../components/home/Search";
 import Breadcrumb from "../components/common/Breadcrumb";
-import { useSelector } from 'react-redux';
-import { userProfile } from '../store/selectors/auth.selector';
 
 const Dashboard = () => {
     const breadcrumbs = [
-        { name: 'Dashboard', active: false },
+        { name: 'Dashboard', active: true, route: '/dashboard' },
     ]
-    const profile = useSelector(userProfile);
     return (
         <>
             <Header showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <div className="wrapper">
-                <section className="wdth100 bg-gry">
+                <section className="wdth100 bg-gry height-100vh">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 pb-50 pt-50">
@@ -29,17 +26,17 @@ const Dashboard = () => {
                                         <SideBar />
                                         <aside className="col-md-9 col-lg-9">
                                             <div className="row pb-20">
-                                                <div className="col-md-12 ">
+                                                {/* <div className="col-md-12 ">
                                                     <h4>Welcome: {profile?.name}</h4>
                                                     <hr className="mt-30 mb-30" />
-                                                </div>
-                                                <div className="col-md-12 ">
+                                                </div> */}
+                                                {/* <div className="col-md-12 ">
                                                     <h6>Find Books</h6>
-                                                </div>
+                                                </div> */}
                                                 <Search />
-                                                <ListBook />
+                                                {/* <ListBook />
                                                 <ManageBook />
-                                                <Profile />
+                                                <Profile /> */}
                                             </div>
                                         </aside>
                                     </div>

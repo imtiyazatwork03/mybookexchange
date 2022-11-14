@@ -2,6 +2,10 @@ export const SIGNUP = '[Auth] Signup';
 export const SIGNUP_SUCCESS = '[Auth] Signup Success';
 export const SIGNUP_FAILURE = '[Auth] Signup Failure';
 
+export const LOGOUT = '[Auth] Logout';
+export const LOGOUT_SUCCESS = '[Auth] Logout Success';
+export const LOGOUT_FAILURE = '[Auth] Logout Failure';
+
 export const PROFILE_UPDATE = '[Auth] ProfileUpdate';
 export const PROFILE_UPDATE_SUCCESS = '[Auth] ProfileUpdate Success';
 export const PROFILE_UPDATE_FAILURE = '[Auth] ProfileUpdate Failure';

@@ -6,7 +6,7 @@ import Breadcrumb from "../components/common/Breadcrumb";
 const ContactUs = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Privacy policy', active: false },
+        { name: 'Contact us', active: true, route: '/contactus' },
     ]
     return (
         <div className="wrapper">

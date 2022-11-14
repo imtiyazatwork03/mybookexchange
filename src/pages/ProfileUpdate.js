@@ -9,12 +9,12 @@ import { userProfile } from "../store/selectors/auth.selector";
 const ProfileUpdate = () => {
     const breadcrumbs = [
         { name: "Dashboard", active: true, route: "/" },
-        { name: "Edit Membership", active: false },
+        { name: "Edit Membership", active: true, route: "/profile" },
     ];
     const profile = useSelector(userProfile);
     return (
         <div className="Manage_Book_Listing">
-            <Header showAddInfo={true} sideProfile={true}/>
+            <Header showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <ShowProfile profile={profile} />
             <Footer />
