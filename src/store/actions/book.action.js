@@ -1,5 +1,5 @@
 import * as actionTypes from '../types/book.type';
-import { bookList, addBook, removeBook, bookDetail, bookTypes, bookCategories, updateBookDetail } from '../../shared/services/app.services';
+import { bookList, addBook, removeBook, bookDetail, bookTypes, bookCategories, bookSearch, updateBookDetail } from '../../shared/services/app.services';
 
 export const getBooks = () => dispatch => {
     dispatch({ type: actionTypes.BOOK_LIST, payload: undefined });
@@ -88,6 +88,14 @@ export const getBookCategories = () => dispatch => {
     });
 };
 
-export const resetBook = payload => dispatch => {
-    dispatch({ type: actionTypes.BOOK_DETAIL_SUCCESS, payload: payload });
+export const searchBook = payload => dispatch => {
+    dispatch({ type: actionTypes.BOOK_SEARCH, payload: undefined });
+    return bookSearch(payload).then(response => {
+        const { success, data } = response.data;
+        if (success) dispatch({ type: actionTypes.BOOK_SEARCH_SUCCESS, payload: data.data });
+        return response.data;
+    }, error => {
+        dispatch({ type: actionTypes.BOOK_SEARCH_FAILURE, payload: { message: 'Error please check data!' } });
+        return error.response.data;
+    });
 };

@@ -7,11 +7,63 @@ import SideBar from "../components/common/SideBar";
 // import Profile from "../components/dashboard/Profile";
 import Search from "../components/home/Search";
 import Breadcrumb from "../components/common/Breadcrumb";
+import UserTable from "../components/table/Table";
 
 const Dashboard = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/dashboard' },
     ]
+    const data = [
+        {
+            email: 'ahmadimtiyazj@gmail.com',
+            lastLogin: 'Today',
+            status: 'Active'
+        },
+        {
+            email: 'ahmadimtiyazj@gmail.com',
+            lastLogin: 'Today',
+            status: 'Active'
+        },
+        {
+            email: 'ahmadimtiyazj@gmail.com',
+            lastLogin: 'Today',
+            status: 'Active'
+        },
+        {
+            email: 'ahmadimtiyazj@gmail.com',
+            lastLogin: 'Today',
+            status: 'Active'
+        },
+        {
+            email: 'ahmadimtiyazj@gmail.com',
+            lastLogin: 'Today',
+            status: 'Active'
+        },
+        {
+            email: 'ahmadimtiyazj@gmail.com',
+            lastLogin: 'Today',
+            status: 'Active'
+        }
+    ];
+    const columns = [
+        {
+            Header: 'Email',
+            accessor: 'email',
+        },
+        {
+            Header: 'Last Login',
+    
+            accessor: 'lastLogin',
+        },
+        {
+            Header: 'Status',
+            accessor: 'status',
+        },
+        {
+            Header: 'Actions',
+            accessor: 'actions',
+        },
+    ];
     return (
         <>
             <Header showAddInfo={true} sideProfile={true} />
@@ -34,6 +86,7 @@ const Dashboard = () => {
                                                     <h6>Find Books</h6>
                                                 </div> */}
                                                 <Search />
+                                                <UserTable columns={columns} data={data} />
                                                 {/* <ListBook />
                                                 <ManageBook />
                                                 <Profile /> */}

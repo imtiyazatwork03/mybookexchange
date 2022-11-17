@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Breadcrumb({ breadcrumbs }) {
+const Breadcrumb = ({ breadcrumbs }) => {
     return (
         <div className="bg-blue">
             <div className="container">

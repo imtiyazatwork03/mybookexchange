@@ -5,7 +5,7 @@ import Footer from '../components/layout/Footer'
 import Breadcrumb from '../components/common/Breadcrumb';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getBook, resetBook } from '../store/actions/book.action';
+import { getBook } from '../store/actions/book.action';
 
 export const ListBooks = () => {
     const { id } = useParams();
@@ -16,7 +16,6 @@ export const ListBooks = () => {
     ]
     useEffect(() => {
         if (id) dispatch(getBook(id));
-        else dispatch(resetBook({}));
     }, [id, dispatch])
     return (
         <>

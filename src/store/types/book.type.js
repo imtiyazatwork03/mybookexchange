@@ -18,6 +18,10 @@ export const BOOK_DETAIL = '[Book] BookDetail';
 export const BOOK_DETAIL_SUCCESS = '[Book] BookDetail Success';
 export const BOOK_DETAIL_FAILURE = '[Book] BookDetail Failure';
 
+export const BOOK_SEARCH = '[Book] BookSearch';
+export const BOOK_SEARCH_SUCCESS = '[Book] BookSearch Success';
+export const BOOK_SEARCH_FAILURE = '[Book] BookSearch Failure';
+
 export const BOOK_TYPES_LIST = '[Book] BookTypeList';
 export const BOOK_TYPES_LIST_SUCCESS = '[Book] BookTypeList Success';
 export const BOOK_TYPES_LIST_FAILURE = '[Book] BookTypeList Failure';

@@ -4,7 +4,8 @@ const initialState = {
     books: [],
     book: {} ,
     types: [],
-    categories: []
+    categories: [],
+    searchedBooks: []
 }
 
 export const bookReducer = (state = initialState, action) => {
@@ -27,6 +28,12 @@ export const bookReducer = (state = initialState, action) => {
             return { ...state, types: action.payload };
         case actionTypes.BOOK_TYPES_LIST_FAILURE:
             return { ...state, types: action.payload };
+        case actionTypes.BOOK_SEARCH:
+            return { ...state, searchedBooks: action.payload };
+        case actionTypes.BOOK_SEARCH_SUCCESS:
+            return { ...state, searchedBooks: action.payload };
+        case actionTypes.BOOK_SEARCH_FAILURE:
+            return { ...state, searchedBooks: action.payload };
         case actionTypes.BOOK_CATEGORIES:
             return { ...state, categories: action.payload };
         case actionTypes.BOOK_CATEGORIES_SUCCESS:

@@ -22,6 +22,7 @@ import LandingView from './pages/LandingView';
 import { useDispatch } from 'react-redux';
 import { getProfile, getState } from './store/actions/auth.action';
 import { useEffect } from 'react';
+import SearchBook from './components/search/SearchBook';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const App = () => {
                     <Route index={false} element={<MyListingBooks />} path="/my-listing-books" />
                     <Route index={false} element={<Cart />} path="/cart" />
                 </Route>
+                <Route element={<SearchBook />} path="search-book" />
                 <Route element={<LandingView />} path="/" />
                 <Route element={<Register />} path="/register" />
                 <Route element={<RegisterSeller />} path="/register-seller" />
