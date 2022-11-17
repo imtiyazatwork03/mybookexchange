@@ -8,61 +8,27 @@ import SideBar from "../components/common/SideBar";
 import Search from "../components/home/Search";
 import Breadcrumb from "../components/common/Breadcrumb";
 import UserTable from "../components/table/Table";
+import { useSelector } from "react-redux";
+import { searchedBooksSelector } from "../store/selectors/book.selector";
 
 const Dashboard = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/dashboard' },
     ]
-    const data = [
-        {
-            email: 'ahmadimtiyazj@gmail.com',
-            lastLogin: 'Today',
-            status: 'Active'
-        },
-        {
-            email: 'ahmadimtiyazj@gmail.com',
-            lastLogin: 'Today',
-            status: 'Active'
-        },
-        {
-            email: 'ahmadimtiyazj@gmail.com',
-            lastLogin: 'Today',
-            status: 'Active'
-        },
-        {
-            email: 'ahmadimtiyazj@gmail.com',
-            lastLogin: 'Today',
-            status: 'Active'
-        },
-        {
-            email: 'ahmadimtiyazj@gmail.com',
-            lastLogin: 'Today',
-            status: 'Active'
-        },
-        {
-            email: 'ahmadimtiyazj@gmail.com',
-            lastLogin: 'Today',
-            status: 'Active'
-        }
-    ];
+    const data = useSelector(searchedBooksSelector);
     const columns = [
         {
-            Header: 'Email',
-            accessor: 'email',
+            Header: 'Title',
+            accessor: 'title',
         },
         {
-            Header: 'Last Login',
-    
-            accessor: 'lastLogin',
+            Header: 'Author',
+            accessor: 'author',
         },
         {
-            Header: 'Status',
-            accessor: 'status',
-        },
-        {
-            Header: 'Actions',
-            accessor: 'actions',
-        },
+            Header: 'ISBN',
+            accessor: 'isbn',
+        }
     ];
     return (
         <>

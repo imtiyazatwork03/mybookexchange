@@ -14,22 +14,17 @@ const SearchBook = () => {
     const data = useSelector(searchedBooksSelector);
     const columns = [
         {
-            Header: 'Email',
-            accessor: 'email',
+            Header: 'Title',
+            accessor: 'title',
         },
         {
-            Header: 'Last Login',
-
-            accessor: 'lastLogin',
+            Header: 'Author',
+            accessor: 'author',
         },
         {
-            Header: 'Status',
-            accessor: 'status',
-        },
-        {
-            Header: 'Actions',
-            accessor: 'actions',
-        },
+            Header: 'ISBN',
+            accessor: 'isbn',
+        }
     ];
     return (
         <div className="wrapper">

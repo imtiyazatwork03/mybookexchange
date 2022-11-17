@@ -12,6 +12,6 @@ export const addBook = payload => instance.post("customer/book", payload);
 export const updateBookDetail = (payload, id) => instance.post(`customer/book/${id}`, payload);
 export const removeBook = payload => instance.delete(`customer/book/${payload}`);
 export const bookDetail = payload => instance.get(`customer/book/${payload}`);
-export const bookSearch = payload => instance.post('customer/book/search-book', payload);
+export const bookSearch = payload => instance.post('customer/search-book', payload);
 export const bookTypes = () => instance.get('customer/type');
 export const bookCategories = () => instance.get('customer/category');
