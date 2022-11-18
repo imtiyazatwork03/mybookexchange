@@ -7,11 +7,11 @@ const Footer = () => {
       <div className="container">
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/aboutus">About</Link>
+          <Link to="#">About</Link>
           <Link to="/term-and-condition">User Agreement</Link>
-          <Link to="/privacypolicy">Privacy Policy</Link>
-          <Link to="/updates">Updates</Link>
-          <Link to="/contactus">Contact Us</Link>
+          <Link to="#">Privacy Policy</Link>
+          <Link to="#">Updates</Link>
+          <Link to="#">Contact Us</Link>
         </nav>
         <p className="Copyright">Copyright @ mybookexchange | 2022</p>
         <div className="clearfix"></div>

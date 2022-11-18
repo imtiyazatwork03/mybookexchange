@@ -19,7 +19,7 @@ const SideProfile = () => {
                             <li className="nav-item dropdown">
                                 <Link className="nav-link nav-pill user-avatar" data-toggle="dropdown" to="#" role="button"
                                     aria-haspopup="true" aria-expanded="false"> <img src="/images/user.ico" alt="avatar" /> </Link>
-                                <div className="dropdown-menu dropdown-menu-right">
+                                <div className="dropdown-menu dropdown-menu-right pb-0 mb-0">
                                     <div className="dropdown-header">
                                         <div className="media">
                                             <div className="media-body">
@@ -27,9 +27,12 @@ const SideProfile = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="dropdown-divider"></div> <span className="dropdown-item" style={{cursor: 'pointer'}}>Profile</span>
-                                    <div className="dropdown-divider"></div> <span className="dropdown-item" style={{cursor: 'pointer'}}>My Order</span>
-                                    <div className="dropdown-divider"></div> <span className="dropdown-item" style={{cursor: 'pointer'}} onClick={logout}>Logout</span>
+                                    <div className="dropdown-divider mt-0 mb-0"></div>
+                                    <span className="dropdown-item" style={{cursor: 'pointer', height: '50pX'}}>
+                                        <Link to="/profile">Profile</Link>
+                                    </span>
+                                    <div className="dropdown-divider mt-0 mb-0"></div>
+                                    <span className="dropdown-item" style={{cursor: 'pointer', height: '50pX'}} onClick={logout}>Logout</span>
                                 </div>
                             </li>
                         </ul>
