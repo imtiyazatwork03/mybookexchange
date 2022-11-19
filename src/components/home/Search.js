@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import { searchBook } from '../../store/actions/book.action';
+import { searchedBooksSelector } from '../../store/selectors/book.selector';
 
 const Search = () => {
     const navigate = useNavigate();
@@ -31,12 +32,13 @@ const Search = () => {
         }
     }
     const token = localStorage.getItem('token');
+    const data = useSelector(searchedBooksSelector);
     const serach = async() => {
         const option = selectedOption?.id || options[0]?.id;
         const text = inputElement.current.value.toLowerCase();
         const obj = { [option]: text };
         await dispatch(searchBook(obj));
-        if (!token) navigate('/search-book');
+        if (!token && data && data.length) navigate('/search-book');
     }
     return (
         <div className="col-md-12 bg-white main-searchbar mb-30">

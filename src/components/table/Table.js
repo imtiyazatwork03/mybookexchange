@@ -5,7 +5,7 @@ import { ChevronDoubleLeftIcon, ChevronLeftIcon, ChevronRightIcon, ChevronDouble
 import { PageButton } from './Button';
 import { SortIcon, SortUpIcon, SortDownIcon } from './Icons';
 
-const UserTable = ({ columns, data }) => {
+const UserTable = ({ columns, data, crud, editBook, removeBook }) => {
     const {
         getTableProps,
         getTableBodyProps,
@@ -36,7 +36,7 @@ const UserTable = ({ columns, data }) => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="chat-section ">
-                                <div className="row pb-20">
+                                <div className="row">
                                     <div className="col-md-12 card pt-40 pb-30 pl-20 pr-20">
                                         <div className="card-body">
                                             <div className="table-responsive">
@@ -71,7 +71,7 @@ const UserTable = ({ columns, data }) => {
                                                         {page && page.length ? page.map((row, i) => {
                                                             prepareRow(row)
                                                             return (
-                                                                <tr {...row.getRowProps()}>
+                                                                <tr {...row.getRowProps()} index={i}>
                                                                     {row.cells.map(cell => {
                                                                         return (
                                                                             <td
@@ -80,7 +80,22 @@ const UserTable = ({ columns, data }) => {
                                                                             >
                                                                                 {
                                                                                     cell.column.id === 'actions' ?
-                                                                                        <div style={{ cursor: 'pointer', color: 'blue' }}>Add to cart</div> :
+                                                                                        <>
+                                                                                            {
+                                                                                                crud ?
+                                                                                                    <>
+                                                                                                        <span className="pr-2" title="Edit" style={{ cursor: 'pointer' }}>
+                                                                                                            <ion-icon name="create-outline" onClick={() => editBook(row)}></ion-icon>
+                                                                                                        </span>
+                                                                                                        <span className="pr-2" title="Edit" style={{ cursor: 'pointer' }}>
+                                                                                                            <ion-icon name="trash-outline" onClick={() => removeBook(row)}></ion-icon>
+                                                                                                        </span>
+                                                                                                    </>
+                                                                                                    :
+                                                                                                    <div style={{ cursor: 'pointer', color: 'blue' }}>Add to cart</div>
+                                                                                            }
+                                                                                        </>
+                                                                                        :
                                                                                         `${cell.value}`
                                                                                 }
                                                                             </td>

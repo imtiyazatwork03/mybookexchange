@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import SideBar from "../components/common/SideBar";
@@ -8,13 +8,18 @@ import SideBar from "../components/common/SideBar";
 import Search from "../components/home/Search";
 import Breadcrumb from "../components/common/Breadcrumb";
 import UserTable from "../components/table/Table";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchedBooksSelector } from "../store/selectors/book.selector";
+import { resetSearchBook } from "../store/actions/book.action";
 
 const Dashboard = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/dashboard' },
     ]
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(resetSearchBook())
+    }, [dispatch]);
     const data = useSelector(searchedBooksSelector);
     const columns = [
         {
@@ -28,6 +33,10 @@ const Dashboard = () => {
         {
             Header: 'ISBN',
             accessor: 'isbn',
+        },
+        {
+            Header: 'Actions',
+            accessor: 'actions',
         }
     ];
     return (
@@ -52,7 +61,9 @@ const Dashboard = () => {
                                                     <h6>Find Books</h6>
                                                 </div> */}
                                                 <Search />
-                                                <UserTable columns={columns} data={data} />
+                                                {
+                                                    data && data.length ? <UserTable columns={columns} data={data} /> : null
+                                                }
                                                 {/* <ListBook />
                                                 <ManageBook />
                                                 <Profile /> */}

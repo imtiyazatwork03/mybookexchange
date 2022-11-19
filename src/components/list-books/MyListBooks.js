@@ -4,19 +4,34 @@ import { Link, useNavigate } from 'react-router-dom'
 import SidebarDash from '../list-books/SidebarDash'
 import { deleteBook } from '../../store/actions/book.action'
 import { toast } from 'react-toastify'
+import UserTable from "../../components/table/Table";
 
 const MyListBooks = ({ books }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const removeBook = async (book) => {
-        const result = await dispatch(deleteBook(book?.id));
+        const result = await dispatch(deleteBook(book?.original?.id));
         const { success, reason } = result;
         if (success) toast.success(reason);
         else toast.error(reason);
     }
     const editBook = (book) => {
-        navigate(`/list-books/${book.id}`);
+        navigate(`/list-books/${book?.original?.id}`);
     }
+    const columns = [
+        {
+            Header: 'Title',
+            accessor: 'title',
+        },
+        {
+            Header: 'Author',
+            accessor: 'author',
+        },
+        {
+            Header: 'Actions',
+            accessor: 'actions',
+        }
+    ];
     return (
         <div className="wrapper height_my_wrapper">
             <section className="height-100vh wdth100 bg-gry">
@@ -39,37 +54,7 @@ const MyListBooks = ({ books }) => {
                                                     <div className="clearfix"></div>
                                                 </div>
                                                 <hr className="mt-20 mb-10" />
-                                                <div className="card-body">
-                                                    <div className="table-responsive">
-                                                        <table className="table center-aligned-table">
-                                                            <thead>
-                                                                <tr className="text-dark">
-                                                                    <th>Title</th>
-                                                                    <th>Author</th>
-                                                                    <th>Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                {
-                                                                    books.map((prop, key) => {
-                                                                        return (<tr key={key}>
-                                                                            <td>{prop?.title}</td>
-                                                                            <td>{prop?.author}</td>
-                                                                            <td>
-                                                                                <span className="pr-2" title="Edit" style={{ cursor: 'pointer' }}>
-                                                                                    <ion-icon name="create-outline" onClick={() => editBook(prop)}></ion-icon>
-                                                                                </span>
-                                                                                <span className="pr-2" title="Edit" style={{ cursor: 'pointer' }}>
-                                                                                    <ion-icon name="trash-outline" onClick={() => removeBook(prop)}></ion-icon>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>)
-                                                                    })
-                                                                }
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                                <UserTable columns={columns} data={books} crud={true} editBook={editBook} removeBook={removeBook} />
                                             </div>
                                         </div>
                                     </aside>

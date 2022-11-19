@@ -99,3 +99,7 @@ export const searchBook = payload => dispatch => {
         return error.response.data;
     });
 };
+
+export const resetSearchBook = () => dispatch => {
+    dispatch({ type: actionTypes.BOOK_SEARCH_SUCCESS, payload: [] });
+};
