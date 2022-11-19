@@ -63,7 +63,7 @@ const LogIn = () => {
         console.log('user', user);
     }*/
     return (
-        <div className="wrapper">
+        <div className="wrapper fullhgt">
             <Header showAddInfo={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <section className="height-100vh d-flex align-items-center page-section-ptb forget-screen">

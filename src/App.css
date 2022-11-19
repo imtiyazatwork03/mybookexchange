@@ -29141,6 +29141,25 @@ div.style-customizer .content-chooser input[type="radio"]:checked ~ label {
     color: #323232;
 }
 
+
+
+.fullhgt{    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;}
+    
+    .mainHmSec{height: 82%;}
+    .height-100vh {
+        height: 80%;
+    }
+    .Manage_Book_Listing{  position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        right: 0;}
+
+
 /*****************
 ================================================
 (  Media Queries  )

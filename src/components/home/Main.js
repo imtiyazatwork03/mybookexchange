@@ -5,7 +5,7 @@ import Search from './Search';
 function Main() {
     return (
         <section className="mainHmSec">
-            <div className="container height-100vh">
+            <div className="container">
                 <div className="row no-gutters">
                     <div className="col-lg-12 col-md-12 text-center mb-20">
                         <Link className="" to="/">

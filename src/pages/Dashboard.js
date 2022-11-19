@@ -41,10 +41,10 @@ const Dashboard = () => {
     ];
     return (
         <>
+        <div className="wrapper fullhgt">
             <Header showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
-            <div className="wrapper">
-                <section className="wdth100 bg-gry height-100vh">
+             <section className="wdth100 bg-gry height-100vh">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 pb-50 pt-50">
@@ -75,8 +75,9 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </section>
-            </div>
+            
             <Footer />
+            </div>
         </>
     );
 };

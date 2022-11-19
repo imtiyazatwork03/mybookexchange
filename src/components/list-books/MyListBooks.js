@@ -33,7 +33,7 @@ const MyListBooks = ({ books }) => {
         }
     ];
     return (
-        <div className="wrapper height_my_wrapper">
+        
             <section className="height-100vh wdth100 bg-gry">
                 <div className="container">
                     <div className="row">
@@ -64,7 +64,7 @@ const MyListBooks = ({ books }) => {
                     </div>
                 </div>
             </section>
-        </div>
+        
     )
 }
 

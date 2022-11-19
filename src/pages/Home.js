@@ -6,7 +6,7 @@ import Main from '../components/home/Main';
 
 const Home = () => {
     return (
-        <div className="wrapper">
+        <div className="wrapper fullhgt">
             <Banner />
             <Header showAddInfo={false} showLogin={true} />
             <Main />
