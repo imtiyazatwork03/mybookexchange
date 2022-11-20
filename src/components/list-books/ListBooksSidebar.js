@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 const ListBooksSidebar = ({id}) => {
     const book = useSelector(bookDetail);
     return (
-        <div className="wrapper">
-            <section className="wdth100 bg-gry">
+        
+            <section className="">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 pb-50 pt-50">
@@ -22,7 +22,7 @@ const ListBooksSidebar = ({id}) => {
                     </div>
                 </div>
             </section>
-        </div>
+       
     )
 }
 

@@ -19,10 +19,12 @@ export const ListBooks = () => {
     }, [id, dispatch])
     return (
         <>
+        <div className='page-container bg-gry'>
             <Header showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <ListBooksSidebar id={id} />
             <Footer />
+            </div>
         </>
     )
 }

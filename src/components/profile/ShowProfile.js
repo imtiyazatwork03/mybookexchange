@@ -11,8 +11,7 @@ import { toast } from "react-toastify";
 function ShowProfile({ profile }) {
     return (
         <div>
-            <div className="wrapper">
-                <section className="wdth100 bg-gry">
+           <section className="wdth100 pb-40">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 pb-50 pt-50">
@@ -26,7 +25,6 @@ function ShowProfile({ profile }) {
                         </div>
                     </div>
                 </section>
-            </div>
         </div>
     );
 }

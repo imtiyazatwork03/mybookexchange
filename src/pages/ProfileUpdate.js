@@ -13,7 +13,7 @@ const ProfileUpdate = () => {
     ];
     const profile = useSelector(userProfile);
     return (
-        <div className="Manage_Book_Listing">
+        <div className="Manage_Book_Listing page-container bg-gry">
             <Header showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <ShowProfile profile={profile} />

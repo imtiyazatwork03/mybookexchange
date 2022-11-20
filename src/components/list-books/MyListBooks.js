@@ -34,7 +34,7 @@ const MyListBooks = ({ books }) => {
     ];
     return (
         
-            <section className="height-100vh wdth100 bg-gry">
+            <section className="">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 pb-50 pt-50">

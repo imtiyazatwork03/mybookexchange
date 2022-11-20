@@ -9,10 +9,10 @@ const PrivacyPolicy = () => {
         { name: 'Privacy policy', active: true, route: '/privacypolicy' },
     ]
     return (
-        <div className="wrapper">
+        <div className="page-container bg-gry">
             <Header showAddInfo={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
-            <section className="height-100vh d-flex align-items-center page-section-ptb forget-screen">
+            <section className="pt-50 pb-50 d-flex align-items-center page-section-ptb forget-screen">
                 <div className="container">
                     <div className="row justify-content-center no-gutters vertical-align">
                         Coming soon!

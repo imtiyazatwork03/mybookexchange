@@ -122,7 +122,7 @@ const RegistrationForm = () => {
         } else toast.error(reason);
     }
     return (
-        <section className="height-100vh pt-50 pb-50 d-flex align-items-center page-section-ptb forget-screen" >
+        <section className="pt-50 pb-50 d-flex align-items-center page-section-ptb forget-screen" >
             <div className="container">
                 <div className="row justify-content-center no-gutters vertical-align">
                     <div className="col-lg-8 col-md-6 bg-white">

@@ -4,7 +4,7 @@ import BooksTable from './BooksTable';
 
 const CartTable = () => {
     return (
-        <section className="height-100vh wdth1024" style={{ background: '#edf2f5' }}>
+        <section className="pb-50 wdth1024" style={{ background: '#edf2f5' }}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 pb-50 pt-50">

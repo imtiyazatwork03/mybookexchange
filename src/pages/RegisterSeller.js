@@ -10,7 +10,7 @@ const RegisterSeller = () => {
         { name: 'Register seller', active: true, route: 'register-seller' },
     ]
     return (
-        <div className="wrapper">
+        <div className="page-container bg-gry">
             <Header showAddInfo={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <RegistrationForm />

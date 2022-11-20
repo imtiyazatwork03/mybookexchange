@@ -6,11 +6,12 @@ import Main from '../components/home/Main';
 
 const Home = () => {
     return (
-        <div className="wrapper fullhgt">
+        <div className="page-container">
             <Banner />
             <Header showAddInfo={false} showLogin={true} />
             <Main />
             <Footer />
+        
         </div>
     )
 }

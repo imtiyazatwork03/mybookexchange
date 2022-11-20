@@ -63,10 +63,10 @@ const LogIn = () => {
         console.log('user', user);
     }*/
     return (
-        <div className="wrapper fullhgt">
+        <div className="page-container bg-gry">
             <Header showAddInfo={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
-            <section className="height-100vh d-flex align-items-center page-section-ptb forget-screen">
+            <section className="pt-40 pb-40 d-flex align-items-center page-section-ptb forget-screen">
                 <div className="container">
                     <div className="row justify-content-center no-gutters vertical-align">
                         <div className="col-lg-4 col-md-6 bg-white">

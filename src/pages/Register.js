@@ -10,10 +10,10 @@ const Register = () => {
         { name: 'Register', active: true, route: '/register' },
     ]
     return (
-        <div className="wrapper">
+        <div className="page-container bg-gry">
             <Header showAddInfo={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
-            <section className="height-100vh d-flex align-items-center page-section-ptb type-of-registration" style={{ background: '#edf2f5' }}>
+            <section className="pt-50 pb-50 d-flex align-items-center page-section-ptb type-of-registration" style={{ background: '#edf2f5' }}>
                 <div className="container">
                     <div className="row no-gutters">
                         <div className="col-lg-12">

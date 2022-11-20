@@ -29141,8 +29141,10 @@ div.style-customizer .content-chooser input[type="radio"]:checked ~ label {
     color: #323232;
 }
 
+body, html{    height: 100%;}
 
 
+/*
 .fullhgt{    position: absolute;
     height: 100%;
     width: 100%;
@@ -29158,7 +29160,18 @@ div.style-customizer .content-chooser input[type="radio"]:checked ~ label {
         width: 100%;
         left: 0;
         right: 0;}
+*/
 
+.mainHmSec{padding-bottom: 49px;}    /* Footer height */
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .main-footer{ position: absolute;
+    bottom: 0;
+    width: 100%; height: 50px;}
 
 /*****************
 ================================================
@@ -29459,6 +29472,16 @@ div.style-customizer .content-chooser input[type="radio"]:checked ~ label {
     .nice-select .list {
         min-width: 100%;
     }
+
+    .main-footer {
+        position: inherit;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+    .main-footer .Copyright{ float: none;}
+
 }
 
 @media (max-width: 600px) {

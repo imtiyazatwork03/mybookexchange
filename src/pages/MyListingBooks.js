@@ -18,7 +18,7 @@ const MyListingBooks = () => {
     }, [dispatch]);
     const books = useSelector(bookList);
     return (
-        <div className="Manage_Book_Listing">
+        <div className="Manage_Book_Listing page-container bg-gry">
             <Header showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <MyListBooks books={books} />

@@ -9,10 +9,10 @@ function TermAndCondition() {
         { name: 'Term and condition', active: true, route: '/term-and-condition' },
     ]
     return (
-        <div className="wrapper">
+        <div className="page-container">
             <Header showAddInfo={true} />
             <Breadcrumb breadcrumbs={breadcrumbs}/>
-            <section className="pt-50 bg-white privcyPolicy">
+            <section className="pt-50 pb-50 bg-white privcyPolicy">
                 <div className="container">
                     <div className="row pb-50">
                         <div className="col-md-12">

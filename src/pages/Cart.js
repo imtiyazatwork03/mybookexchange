@@ -10,7 +10,7 @@ const Cart = () => {
         { name: 'Cart', active: true, route: '/cart' },
     ]
     return (
-        <div className="wrapper">
+        <div className="page-container bg-gry">
             <Header showAddInfo={true} showLogin={false} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <CartTable />
