@@ -15,3 +15,4 @@ export const bookDetail = payload => instance.get(`customer/book/${payload}`);
 export const bookSearch = payload => instance.post('customer/search-book', payload);
 export const bookTypes = () => instance.get('customer/type');
 export const bookCategories = () => instance.get('customer/category');
+export const moduleDetail = module => instance.get(`customer/cms/bymodule/${module}`);

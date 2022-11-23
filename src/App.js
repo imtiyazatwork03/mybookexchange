@@ -7,7 +7,6 @@ import Register from './pages/Register';
 import RegisterSeller from './pages/RegisterSeller';
 import ForgotPassword from './pages/ForgotPassword';
 import NotFound from './pages/NotFound';
-import TermAndCondition from './pages/TermAndCondition';
 import UnderConstruction from './pages/UnderConstruction';
 import ProfileUpdate from './pages/ProfileUpdate';
 import PrivateRoutes from './utils/PrivateRoutes';
@@ -52,13 +51,12 @@ const App = () => {
                 <Route element={<LogIn />} path="/login" />
                 <Route element={<ForgotPassword />} path="/forgot-password" />
                 <Route element={<NotFound />} path="/not-found" />
-                <Route element={<TermAndCondition />} path="/term-and-condition" />
                 <Route element={<UnderConstruction />} path="/under-construction" />
                 <Route element={<AboutUs />} path="/aboutus" />
-                <Route element={<UserAgreement />} path="/useragreement" />
                 <Route element={<Updates />} path="/updates" />
                 <Route element={<ContactUs />} path="/contactus" />
-                <Route element={<PrivacyPolicy />} path="/privacypolicy" />
+                <Route element={<UserAgreement />} path="/user-agreement" />
+                <Route element={<PrivacyPolicy />} path="/privacy-policy" />
                 <Route path="*" element={<LandingView />} />
             </Routes>
             <ToastContainer

@@ -64,6 +64,11 @@ export const getBook = payload => dispatch => {
     });
 };
 
+export const resetBook = payload => dispatch => {
+    dispatch({ type: actionTypes.BOOK_DETAIL, payload });
+    dispatch({ type: actionTypes.BOOK_DETAIL_SUCCESS, payload });
+};
+
 export const getBookTypes = () => dispatch => {
     dispatch({ type: actionTypes.BOOK_TYPES_LIST, payload: undefined });
     return bookTypes().then(response => {

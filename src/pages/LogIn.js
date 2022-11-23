@@ -42,8 +42,8 @@ const LogIn = () => {
     }
     const logInWithGoogle = async () => {
         const result = await signInWithPopup(Auth, Google);
-        const { displayName, uid, email } = result.user;
-        const postData = { email, google_id: uid, name: displayName };
+        const { displayName, localId, email } = result._tokenResponse;
+        const postData = { email, google_id: localId, name: displayName };
         const user = await dispatch(signInWithGoogle(postData));
         const { success, reason, data } = user;
         if (success) {

@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { onKeyPress } from '../../utils/util';
-import { createBook, getBookCategories, getBookTypes, updateBook } from '../../store/actions/book.action';
+import { createBook, updateBook } from '../../store/actions/book.action';
 import Select from 'react-select';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { BookSelectedCategories } from '../../store/selectors/book.selector';
 
-const BookForm = ({ book, id }) => {
+const initialState = {
+    title: '',
+    author: '',
+    isbn: '',
+    quantity: '',
+    book_condition: null,
+    type_id: null,
+    category_id: null
+}
+
+const BookForm = ({ book, id, books }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [bookTypes, setBookTypes] = useState([]);
     const [bookCategories, setBookCategories] = useState([]);
     const [selectedCondition, setSelectedCondition] = useState(null);
     const [selectedBook, setSelectedBook] = useState(null);
@@ -38,15 +46,10 @@ const BookForm = ({ book, id }) => {
         }
     }
     useEffect(() => {
-        dispatch(getBookTypes());
-        dispatch(getBookCategories());
-    }, [dispatch]);
-    const books = useSelector(BookSelectedCategories);
-    useEffect(() => {
-        setBookTypes(books);
+        setBookCategories(books[0]?.categories || []);
         if (book?.id) {
             const { title, author, isbn, quantity, type, category, book_condition } = book;
-            const categories =books.filter(prop => prop?.id === type?.id)[0]?.categories;
+            const categories = books.filter(prop => prop?.id === type?.id)[0]?.categories;
             const obj = Object.assign({}, {
                 title,
                 author,
@@ -56,45 +59,28 @@ const BookForm = ({ book, id }) => {
                 category_id: category?.id,
                 book_condition
             });
+            setSelectedCondition(conditions.find(con => con.id === +book_condition))
             setSelectedBook(type);
             setBookCategories(categories || []);
             setSelectedCategory(category);
-            setSelectedCondition(conditions.find(con => con.id === +book_condition))
             setInput({ ...input, ...obj });
         } else {
-            setBookCategories(books[0]?.categories || []);
-            setInput(
-                {
-                    title: '',
-                    author: '',
-                    isbn: '',
-                    quantity: '',
-                    book_condition: conditions[0]?.id,
-                    type_id: bookTypes[0]?.id,
-                    category_id: bookCategories[0]?.id
-                }
-            )
+            setInput({
+                ...initialState,
+                book_condition: conditions[0]?.id,
+                type_id: books[0]?.id,
+                category_id: books[0]?.categories && books[0]?.categories.length && books[0]?.categories[0]?.id
+            });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [book?.id, book, books, dispatch]);
     const [input, setInput] = useState({
-        title: '',
-        author: '',
-        isbn: '',
-        quantity: '',
+        ...initialState,
         book_condition: conditions[0]?.id,
-        type_id: bookTypes[0]?.id,
-        category_id: bookCategories[0]?.id
+        type_id: books[0]?.id,
+        category_id: books[0]?.categories && books[0]?.categories.length && books[0]?.categories[0]?.id
     });
-    const [error, setError] = useState({
-        title: '',
-        author: '',
-        isbn: '',
-        quantity: '',
-        book_condition: conditions[0]?.id,
-        type_id: bookTypes[0]?.id,
-        category_id: bookCategories[0]?.id
-    })
+    const [error, setError] = useState(initialState)
     const onInputChange = e => {
         const { name, value } = e.target;
         setInput(prev => ({
@@ -130,13 +116,15 @@ const BookForm = ({ book, id }) => {
     }
     const changeBookType = (type) => {
         setBookCategories(type?.categories);
+        setSelectedCategory(type?.categories[0]);
         setSelectedBook(type);
         setInput(prev => ({
             ...prev,
-            type_id: type.id
+            type_id: type.id,
+            category_id: type?.categories[0]?.id
         }));
     }
-    
+
     const changeBookCondition = (condition) => {
         setSelectedCondition(condition);
         setInput(prev => ({
@@ -162,7 +150,7 @@ const BookForm = ({ book, id }) => {
             navigate('/my-listing-books')
         } else toast.error(reason);
     }
-    
+
     return (
         <aside className="col-md-9 col-lg-9">
             <div className="row pb-20">
@@ -263,8 +251,8 @@ const BookForm = ({ book, id }) => {
                                     <label htmlFor="BookType">BookType</label>
                                     <Select
                                         styles={customStyles}
-                                        value={selectedBook || bookTypes[0]}
-                                        options={bookTypes}
+                                        value={selectedBook || books[0]}
+                                        options={books}
                                         isSearchable={true}
                                         placeholder="select"
                                         name="type_id"
@@ -313,4 +301,4 @@ const BookForm = ({ book, id }) => {
     )
 }
 
-export default BookForm
+export default BookForm;

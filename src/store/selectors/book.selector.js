@@ -16,7 +16,7 @@ export const BookSelectedCategories = createSelector([types, categories], (types
     if (typesData?.length && categoriesProp?.length) {
         typesData.forEach(prop => {
             const categoriesData = categoriesProp.filter(cat => cat.type_id === prop.id);
-            prop['categories'] = categoriesData;
+            prop['categories'] = categoriesData || [];
         });
     }
     return typesData;

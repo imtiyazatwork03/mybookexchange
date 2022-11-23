@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { moduleDetailAction } from '../store/actions/module.action';
+import { moduleDetailSelector } from '../store/selectors/module.selector';
+import { useLocation } from 'react-router-dom';
+import Module from "../components/common/Module";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import Breadcrumb from "../components/common/Breadcrumb";
 
 const PrivacyPolicy = () => {
+    const location = useLocation();
+    const dispatch = useDispatch();
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Privacy policy', active: true, route: '/privacypolicy' },
+        { name: 'Privacy policy', active: true, route: '/privacy-policy' },
     ]
+    const payload = location.pathname?.substring(1);
+    useEffect(() => {
+        if (payload) dispatch(moduleDetailAction(payload));
+    }, [payload, dispatch]);
+    const moduleDetailData = useSelector(moduleDetailSelector);
     return (
         <div className="page-container bg-gry">
             <Header showAddInfo={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
-            <section className="pt-50 pb-50 d-flex align-items-center page-section-ptb forget-screen">
-                <div className="container">
-                    <div className="row justify-content-center no-gutters vertical-align">
-                        Coming soon!
-                    </div>
-                </div>
-            </section>
+            <Module mod={moduleDetailData?.data} />
             <Footer />
         </div>
     );

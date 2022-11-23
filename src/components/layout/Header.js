@@ -12,9 +12,9 @@ const Header = ({ showAddInfo, showLogin, sideProfile }) => {
                             <img src="/images/logo-dark.png" alt="logo" />
                         </Link>
                         <nav className="middleNav">
-                            <Link to="#">About</Link>
-                            <Link to="#">Updates</Link>
-                            <Link to="#">Contact Us</Link>
+                            <Link to="/aboutus">About</Link>
+                            <Link to="/updates">Updates</Link>
+                            <Link to="/contactus">Contact Us</Link>
                         </nav>
                     </>
                     : null}
