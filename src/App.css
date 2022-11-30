@@ -11,7 +11,7 @@
     --green: #28a745;
     --teal: #20c997;
     --cyan: #17a2b8;
-    --white: #fff;
+    --white: #ffff;
     --gray: #6c757d;
     --gray-dark: #343a40;
     --primary: #007bff;
@@ -17155,7 +17155,8 @@ span.CodeMirror-selectedtext {
 
 .fa-arrow-circle-right:before {
     content: "\f0a9";
-    color: #0f65b1;
+    color: #000080; 
+    /* #0f65b1; */
 }
 
 .fa-arrow-circle-up:before {
@@ -24908,7 +24909,8 @@ button:focus {
 }
 
 .button {
-    background: #0f65b1;
+    background: #000080;
+    /* #0f65b1; */
     padding: 9px 20px;
     font-size: 14px;
     letter-spacing: 0px;
@@ -24918,7 +24920,8 @@ button:focus {
     font-weight: 500;
     display: inline-block;
     text-align: center;
-    border: 2px solid #0f65b1;
+    border: 2px solid #000080;
+    /* #0f65b1; */
     cursor: pointer;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -24927,9 +24930,9 @@ button:focus {
     transition: all 0.5s ease;
 }
 .button:hover {
-    background: #0f65b2;
+    background: #626262;
     color: #ffffff;
-    border-color: #0f65b2;
+    border-color: #626262;
 }
 .button:focus {
     background: #323232;

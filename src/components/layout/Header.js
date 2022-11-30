@@ -9,7 +9,8 @@ const Header = ({ showAddInfo, showLogin, sideProfile }) => {
                 {showAddInfo ?
                     <>
                         <Link className="logo" to="/">
-                            <img src="/images/logo-dark.png" alt="logo" />
+                            <img src="/images/mbe-main-logo.png" alt="logo"
+                                style={{ width: '270px' }} />
                         </Link>
                         <nav className="middleNav">
                             <Link to="/aboutus">About</Link>
@@ -21,7 +22,7 @@ const Header = ({ showAddInfo, showLogin, sideProfile }) => {
                 {showLogin ?
                     <div className="rightNav">
                         <Link to="/login" className="button yellow">Login</Link>
-                        <Link to="/register" className="button">Join Now</Link>
+                        <Link to="/joinnow" className="button">Join Now</Link>
                     </div>
                     : null}
                 {sideProfile ?

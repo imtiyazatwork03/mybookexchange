@@ -13,10 +13,10 @@ function ManageBook() {
                   className="mb-20 mt-20"
                   alt="seller"
                 />
-                <h5>Manage Book Listing</h5>
-                <Link to="/my-listing-books" className="button">
+                <h5>Manage Books</h5>
+                <Link to="/managebooks" className="button">
                   {" "}
-                  Manage Books List
+                  Manage Books
                 </Link>
               </div>
             </div>

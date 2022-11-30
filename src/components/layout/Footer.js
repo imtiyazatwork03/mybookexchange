@@ -8,8 +8,8 @@ const Footer = () => {
                 <nav>
                     <Link to="/">Home</Link>
                     <Link to="/aboutus">About</Link>
-                    <Link to="/user-agreement">User Agreement</Link>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <Link to="/useragreement">User Agreement</Link>
+                    <Link to="/privacypolicy">Privacy Policy</Link>
                     <Link to="/updates">Updates</Link>
                     <Link to="/contactus">Contact Us</Link>
                 </nav>

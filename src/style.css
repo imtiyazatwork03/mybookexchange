@@ -6,9 +6,11 @@
 .bdyColor {
     background-color: #edf2f5;
 }
-
-.topHdr{    background: #0f65b1;}
+/* #0f65b1; */
+.topHdr{    background: #000080;}
 .topHdr p{    color: #fff;}
+.topLink{    background: #ffc01b;}
+.topLink p{    color: black;}
 .login.screen {
     background-image: url(../public/images/login-inner-bg.jpg);
 }
@@ -71,9 +73,12 @@ b, strong {
     text-transform: capitalize;
     padding: 5px 15px;
 }
-.button.yellow{color: #626262!important;background: #fade2e;border-color: #fade2e;}
+/* fade2e */
+.button.yellow{color: white!important;background: #ffc01b;border-color: #ffc01b;}
 .button.yellow:hover {
    color: white !important;
+   background-color: #ffc01b;
+   border-color: #ffc01b;
 }
 .main-header .rightNav .button.regstr {
 }
@@ -284,8 +289,9 @@ ul.gttl{padding-left: 0px}
     background: #fff;
     }
     
+/* #0f65b1; */
 .bg-blue, .breadcrumb {
-    background-color: #0f65b1;
+    background-color: #000080;
 }
 .bg-gry {background: #edf2f5;}
 .breadcrumb.tranparent{ margin-bottom:0px; background-color:transparent;}
@@ -376,8 +382,8 @@ h6.card-title span {
 .acd-heading.bg-lgtblue{background: #edf2f5!important;color: #323232!important;}
 
 .accordion.accordion-border .acd-group.acd-active .acd-heading {
-  
-background: #0f65b1!important;
+/* #0f65b1; */
+background: #000080!important;
   
 color: #ffffff!important;
 }

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Breadcrumb = ({ breadcrumbs }) => {
     return (
-        <div className="bg-blue">
+        <div className="topHdr">
             <div className="container">
-                <ol className="breadcrumb pb-20 pt-20" style={{ backgroundColor: '#0f65b1' }}>
+            {/* #0f65b1; */}
+                <ol className="breadcrumb pb-12 pt-12" style={{ backgroundColor: '#000080' }}>
                     {breadcrumbs && breadcrumbs.length && breadcrumbs.map((prop, index) => {
                         return prop.active ?
                             <li key={index} className="breadcrumb-item">

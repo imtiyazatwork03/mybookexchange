@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
     const dispatch = useDispatch();
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Privacy policy', active: true, route: '/privacy-policy' },
+        { name: 'Privacy policy', active: true, route: '/privacypolicy' },
     ]
     const payload = location.pathname?.substring(1);
     useEffect(() => {

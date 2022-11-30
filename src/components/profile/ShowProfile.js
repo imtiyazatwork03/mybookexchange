@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { onKeyPress } from '../../utils/util';
 import Select from 'react-select';
-import SidebarDash from "../list-books/SidebarDash";
 import { useDispatch, useSelector } from "react-redux";
 import { stateList } from "../../store/selectors/auth.selector";
 import { useNavigate } from "react-router-dom";
@@ -10,22 +9,13 @@ import { toast } from "react-toastify";
 
 function ShowProfile({ profile }) {
     return (
-        <div>
-           <section className="wdth100 pb-40">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12 pb-50 pt-50">
-                                <div className="chat-section ">
-                                    <div className="row">
-                                        <SidebarDash />
-                                        <ProfileInfo profile={profile} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-        </div>
+        <section className="mainHmSec">
+            <div className="container">
+                <div className="row no-gutters" style={{ justifyContent: 'center' }}>
+                    <ProfileInfo profile={profile} />
+                </div>
+            </div>
+        </section>
     );
 }
 
@@ -138,12 +128,12 @@ const ProfileInfo = ({ profile }) => {
         const { success, reason } = user;
         if (success) {
             toast.success(reason);
-            navigate('/dashboard')
+            navigate('/')
         } else toast.error(reason);
     }
 
     return (
-        <aside className="col-md-9 col-lg-9">
+        <aside className="col-md-10 col-lg-10">
             <div className="row pb-20">
                 <div className="col-md-12 ">
                 </div>

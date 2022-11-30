@@ -14,7 +14,7 @@ function ListBook() {
                   alt="seller"
                 />
                 <h5>Want to List Book</h5>
-                <Link to="/list-books" className="button">
+                <Link to="/listbooks" className="button">
                   + List your Book
                 </Link>
               </div>

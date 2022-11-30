@@ -7,7 +7,7 @@ import Breadcrumb from "../components/common/Breadcrumb";
 const Register = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Register', active: true, route: '/register' },
+        { name: 'Join Now', active: true, route: '/joinnow' },
     ]
     return (
         <div className="page-container bg-gry">
@@ -33,7 +33,7 @@ const Register = () => {
                         <div className="col-lg-6 col-md-6 type-coloum">
                             <div className="pt-30 pr-30 pb-30 pl-30 clearfix bg-white card">
                                 <img src="images/seller.png" alt="seller" />
-                                <Link to="/register-seller" className="button">
+                                <Link to="/register" className="button">
                                     I have books
                                 </Link>
                             </div>

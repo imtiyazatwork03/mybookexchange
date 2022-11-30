@@ -8,11 +8,11 @@ const SideProfile = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const profile = useSelector(userProfile);
-    const logout = async() => {
+    const logout = async () => {
         await dispatch(userLogout({}));
     }
     const toProfile = () => {
-        navigate('/profile');
+        navigate('/editmembership');
     }
     return (
         <div>
@@ -32,10 +32,15 @@ const SideProfile = () => {
                                         </div>
                                     </div>
                                     <div className="dropdown-divider mt-0 mb-0"></div>
-                                    <span className="dropdown-item" style={{cursor: 'pointer', height: '50pX'}} onClick={toProfile}>Profile</span>
+                                    <span className="dropdown-item" style={{ cursor: 'pointer', height: '50pX' }} onClick={toProfile}>Edit Membership</span>
                                     <div className="dropdown-divider mt-0 mb-0"></div>
-                                    <span className="dropdown-item" style={{cursor: 'pointer', height: '50pX'}} onClick={logout}>Logout</span>
+                                    <span className="dropdown-item" style={{ cursor: 'pointer', height: '50pX' }} onClick={logout}>Logout</span>
                                 </div>
+                            </li>
+                            <div className="verticalLine" style={{borderLeft: '2px solid #626262', height: '30px', marginTop: '10px'}}></div>
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link nav-pill user-avatar" data-toggle="dropdown" to="/mycart" role="button"
+                                    aria-haspopup="true" aria-expanded="false"> <ion-icon name="cart-outline" style={{ fontSize: '25px', marginTop: '5px' }}></ion-icon> </Link>
                             </li>
                         </ul>
                     </div>
@@ -45,4 +50,4 @@ const SideProfile = () => {
     )
 }
 
-export default SideProfile
+export default SideProfile;

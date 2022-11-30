@@ -147,12 +147,12 @@ const BookForm = ({ book, id, books }) => {
         const { success, reason } = book;
         if (success) {
             toast.success(reason);
-            navigate('/my-listing-books')
+            navigate('/managebooks')
         } else toast.error(reason);
     }
 
     return (
-        <aside className="col-md-9 col-lg-9">
+        <aside className="col-md-10 col-lg-10">
             <div className="row pb-20">
                 <div className="col-md-12 ">
                 </div>

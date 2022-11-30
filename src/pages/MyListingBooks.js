@@ -6,11 +6,12 @@ import Breadcrumb from '../components/common/Breadcrumb';
 import MyListBooks from '../components/list-books/MyListBooks';
 import { getBooks } from '../store/actions/book.action';
 import { bookList } from '../store/selectors/book.selector';
+import RouteLink from '../components/common/RouteLink';
 
 const MyListingBooks = () => {
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Book Listing', active: true, route: '/my-listing-books' }
+        { name: 'Manage Books', active: true, route: '/managebooks' }
     ]
     const dispatch = useDispatch();
     useEffect(() => {
@@ -21,6 +22,7 @@ const MyListingBooks = () => {
         <div className="Manage_Book_Listing page-container bg-gry">
             <Header showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
+            <RouteLink />
             <MyListBooks books={books} />
             <Footer />
         </div>

@@ -31,9 +31,9 @@ const UserTable = ({ columns, data, crud, editBook, removeBook }) => {
     )
     return (
         <div className="wrapper height_my_wrapper p-0">
-            <section className="wdth100 bg-gry">
+            <section className="mainHmSec">
                 <div className="container">
-                    <div className="row">
+                    <div className="row no-gutters" style={{ justifyContent: 'center' }}>
                         <div className="col-md-12">
                             <div className="chat-section ">
                                 <div className="row">

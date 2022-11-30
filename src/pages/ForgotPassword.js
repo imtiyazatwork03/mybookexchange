@@ -7,7 +7,7 @@ function ForgotPassword() {
     const inputElement = useRef('');
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'Forget password', active: true, route: '/forgot-password' },
+        { name: 'Forget password', active: true, route: '/forgetpassword' },
     ]
     const formSubmit = async (event) => {
         event.preventDefault();

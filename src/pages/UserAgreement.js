@@ -13,7 +13,7 @@ const UserAgreement = () => {
     const dispatch = useDispatch();
     const breadcrumbs = [
         { name: 'Dashboard', active: true, route: '/' },
-        { name: 'User Agreement', active: true, route: '/user-agreement' },
+        { name: 'User Agreement', active: true, route: '/useragreement' },
     ]
     const payload = location.pathname?.substring(1);
     useEffect(() => {

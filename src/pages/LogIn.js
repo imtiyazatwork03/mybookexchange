@@ -37,7 +37,7 @@ const LogIn = () => {
             toast.success(reason);
             localStorage.setItem('token', prop?.token);
             await dispatch(getProfile());
-            navigate('/dashboard')
+            navigate('/')
         } else toast.error(reason);
     }
     const logInWithGoogle = async () => {
@@ -54,14 +54,6 @@ const LogIn = () => {
             navigate('/dashboard')
         } else toast.error(reason);
     }
-
-    /*const logInWithFacebook = async() => {
-        const result = await signInWithPopup(Auth, Facebook);
-        const { displayName, uid, email } = result.user;
-        const postData = { email, google_id: uid, name: displayName };
-        const user = await dispatch(signInWithFacebook(postData));
-        console.log('user', user);
-    }*/
     return (
         <div className="page-container bg-gry">
             <Header showAddInfo={true} />
@@ -71,11 +63,6 @@ const LogIn = () => {
                     <div className="row justify-content-center no-gutters vertical-align">
                         <div className="col-lg-4 col-md-6 bg-white">
                             <div className="pt-30 pr-30 pb-30 pl-30 clearfix text-center">
-                                {/* <img
-                                    src="images/icon-forget-pswrd.png"
-                                    className="mb-20"
-                                    alt="forgot-password"
-                                /> */}
                                 <h4>Login Account</h4>
                                 <hr className="mt-20 mb-10" />
                                 <div className="mb-10">
@@ -113,7 +100,7 @@ const LogIn = () => {
                                         <ion-icon onClick={togglePasswordVisiblity} name="eye-outline" style={{ position: 'absolute', right: '10px', top: '18px', cursor: 'pointer' }}></ion-icon>
                                     </div>
                                     <p className="mt-20 mb-20 text-right">
-                                        <Link to="/forgot-password">Forgot Password?</Link>
+                                        <Link to="/forgetpassword">Forget Password?</Link>
                                     </p>
                                     <div className="mb-10">
                                         <button type="submit" className="button">Login</button>
@@ -124,7 +111,7 @@ const LogIn = () => {
                                 </form>
                                 <p className="mt-20 mb-0 dnthvAcnt">
                                     Don't have an account?{" "}
-                                    <Link to="/register">
+                                    <Link to="/joinnow">
                                         <b>Join Now</b>
                                     </Link>
                                 </p>
