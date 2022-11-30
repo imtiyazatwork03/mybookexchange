@@ -37,7 +37,7 @@ function BooksTable() {
                                 <th>Price</th>
                                 <th>Discount </th>
                                 <th> Net pay </th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,12 +57,12 @@ function BooksTable() {
                                             {prop.netpay}
                                         </td>
                                         <td>
-                                        <Link className="pr-2" to="/" title="Edit">
-                                            <ion-icon name="create-outline"></ion-icon>
-                                        </Link>
-                                        <Link className="pr-2" to="/" title="Edit">
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                        </Link>
+                                            <Link className="pr-2" to="/" title="Edit">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </Link>
+                                            <Link className="pr-2" to="/" title="Edit">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </Link>
                                         </td>
                                     </tr>
                                 )
