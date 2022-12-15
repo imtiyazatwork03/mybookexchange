@@ -1,15 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { userToken } from '../store/selectors/auth.selector';
+import { userToken, userTokenSignUp } from '../store/selectors/auth.selector';
 import Dashboard from './Dashboard';
 import Home from './Home';
 
 const LandingView = () => {
     const token = useSelector(userToken);
+    const tokenSignUp = useSelector(userTokenSignUp);
     return (
         <>
             {
-                token ? <Dashboard /> : <Home />
+                token || tokenSignUp ? <Dashboard /> : <Home />
             }
         </>
     )

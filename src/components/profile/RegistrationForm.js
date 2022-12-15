@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from "react-redux";
 // import { onKeyPress } from '../../utils/util';
-import { signUp } from '../../store/actions/auth.action';
+import { signUp, getProfile } from '../../store/actions/auth.action';
 // import Select from 'react-select';
+import GoogleLogin from "../../components/login/GoogleLogin";
 import './profile.css';
 import { stateList } from '../../store/selectors/auth.selector';
 
@@ -13,6 +14,8 @@ const RegistrationForm = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const options = useSelector(stateList);
+    const [passwordShown, setPasswordShown] = useState(false);
+    const [cPasswordShown, setCPasswordShown] = useState(false);
     const [input, setInput] = useState({
         firstName: '',
         lastName: '',
@@ -115,12 +118,21 @@ const RegistrationForm = () => {
     const formSubmit = async (event) => {
         event.preventDefault();
         const user = await dispatch(signUp(input));
-        const { success, reason } = user;
+        const { success, reason, data } = user;
         if (success) {
+            const prop = data?.data;
             toast.success(reason);
-            navigate('/login')
+            localStorage.setItem('token', prop?.token);
+            await dispatch(getProfile());
+            navigate('/');
         } else toast.error(reason);
     }
+    const togglePasswordVisiblity = () => {
+        setPasswordShown(passwordShown ? false : true);
+    };
+    const toggleCPasswordVisiblity = () => {
+        setCPasswordShown(cPasswordShown ? false : true);
+    };
     return (
         <section className="pt-50 pb-50 d-flex align-items-center page-section-ptb forget-screen" >
             <div className="container">
@@ -130,6 +142,14 @@ const RegistrationForm = () => {
                             {/* <img src="/images/register-member.png" alt="member" className="mb-20" /> */}
                             <h4>Member Registration</h4>
                             <hr className="mt-20 mb-10" />
+                            <div className="mb-10">
+                                <GoogleLogin />
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                                <div style={{ width: '50%', borderBottom: '1px solid #c1cad4', marginBottom: '10px' }}></div>
+                                <div style={{ paddingRight: '10px', paddingLeft: '10px' }}>OR</div>
+                                <div style={{ width: '50%', borderBottom: '1px solid #c1cad4', marginBottom: '10px' }}></div>
+                            </div>
                             <form className="text-left" onSubmit={formSubmit}>
                                 <div className="form-row mt-20 mb-20">
                                     <div className=" col-md-6">
@@ -160,7 +180,7 @@ const RegistrationForm = () => {
                                     </div>
                                 </div>
                                 <div className="form-row mt-20 mb-20">
-                                    <div className="form-group col-md-6">
+                                    <div className="form-group col-md-12">
                                         {/* <label htmlFor="email">Email *</label> */}
                                         <input
                                             type="email"
@@ -174,8 +194,7 @@ const RegistrationForm = () => {
                                             required />
                                         {error.email && <span className='err'>{error.email}</span>}
                                     </div>
-                                    <div className=" col-md-6">
-                                        {/* <label htmlFor="username">Username *</label> */}
+                                    {/* <div className=" col-md-6">
                                         <input
                                             type="text"
                                             name="username"
@@ -186,13 +205,13 @@ const RegistrationForm = () => {
                                             placeholder="Username"
                                             required />
                                         {error.username && <span className='err'>{error.username}</span>}
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="form-row mt-20 mb-20">
                                     <div className="form-group col-md-6">
                                         {/* <label htmlFor="password">Password *</label> */}
                                         <input
-                                            type="password"
+                                            type={passwordShown ? "text" : "password"}
                                             name="password"
                                             value={input?.password}
                                             onChange={onInputChange}
@@ -201,12 +220,13 @@ const RegistrationForm = () => {
                                             id="password"
                                             placeholder="Password"
                                             required />
+                                        <ion-icon onClick={togglePasswordVisiblity} name="eye-outline" style={{ position: 'absolute', right: '10px', top: '18px', cursor: 'pointer' }}></ion-icon>
                                         {error.password && <span className='err'>{error.password}</span>}
                                     </div>
                                     <div className="form-group col-md-6">
                                         {/* <label htmlFor="confirmPassword">Confirm password *</label> */}
                                         <input
-                                            type="password"
+                                            type={cPasswordShown ? "text" : "password"}
                                             name="confirmPassword"
                                             value={input?.confirmPassword}
                                             onChange={onInputChange}
@@ -215,6 +235,7 @@ const RegistrationForm = () => {
                                             id="confirmPassword"
                                             placeholder="Confirm password"
                                             required />
+                                        <ion-icon onClick={toggleCPasswordVisiblity} name="eye-outline" style={{ position: 'absolute', right: '10px', top: '18px', cursor: 'pointer' }}></ion-icon>
                                         {error.confirmPassword && <span className='err'>{error.confirmPassword}</span>}
                                     </div>
                                 </div>

@@ -4,10 +4,9 @@ import { useDispatch } from "react-redux";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import Breadcrumb from "../components/common/Breadcrumb";
-import { signIn, getProfile, signInWithGoogle } from '../store/actions/auth.action';
+import GoogleLogin from "../components/login/GoogleLogin";
+import { signIn, getProfile } from '../store/actions/auth.action';
 import { toast } from "react-toastify";
-import { signInWithPopup } from 'firebase/auth';
-import { Auth, Google } from '../utils/firebase';
 
 const LogIn = () => {
     const breadcrumbs = [
@@ -37,21 +36,7 @@ const LogIn = () => {
             toast.success(reason);
             localStorage.setItem('token', prop?.token);
             await dispatch(getProfile());
-            navigate('/')
-        } else toast.error(reason);
-    }
-    const logInWithGoogle = async () => {
-        const result = await signInWithPopup(Auth, Google);
-        const { displayName, localId, email } = result._tokenResponse;
-        const postData = { email, google_id: localId, name: displayName };
-        const user = await dispatch(signInWithGoogle(postData));
-        const { success, reason, data } = user;
-        if (success) {
-            const prop = data?.data;
-            toast.success(reason);
-            localStorage.setItem('token', prop?.token);
-            await dispatch(getProfile());
-            navigate('/dashboard')
+            navigate('/');
         } else toast.error(reason);
     }
     return (
@@ -66,9 +51,7 @@ const LogIn = () => {
                                 <h4>Login Account</h4>
                                 <hr className="mt-20 mb-10" />
                                 <div className="mb-10">
-                                    <button type="button" className="button" onClick={logInWithGoogle}>
-                                        <ion-icon name="logo-google"></ion-icon> Continue using google
-                                    </button>
+                                    <GoogleLogin />
                                 </div>
                                 <div style={{ display: 'flex' }}>
                                     <div style={{ width: '50%', borderBottom: '1px solid #c1cad4', marginBottom: '10px' }}></div>

@@ -18,13 +18,21 @@ const Dashboard = () => {
     }, [dispatch]);
     return (
         <div className="page-container">
-            <Header showAddInfo={true} sideProfile={true} />
+            <Header hideLogo={true} showAddInfo={true} sideProfile={true} />
             <Breadcrumb breadcrumbs={breadcrumbs} />
             <RouteLink />
             <br></br> <br></br> <br></br>
             <section className="mainHmSec">
                 <div className="container">
                     <div className="row no-gutters" style={{ justifyContent: 'center' }}>
+                        <div className="col-lg-12 col-md-12 text-center mb-20">
+                            <Link className="" to="/">
+                                <img src="images/mbe-main-logo.png" alt="logo"
+                                    style={{ maxWidth: '578px', width: '100%' }} />
+                            </Link>
+                            <p className="text-center mt-20">Mybookexchange.com (MBE) is a 'pure' book exchange site.</p>
+                            <p className="text-center">No Selling | No Buying | No points/credit system</p>
+                        </div>
                         <Search />
                         <div className="col-lg-12 col-md-12 text-center mt-10">
                             <p className="text-center mt-20">You can also search by alphabetical listings:</p>

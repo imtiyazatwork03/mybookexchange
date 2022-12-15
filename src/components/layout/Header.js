@@ -2,16 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SideProfile from '../cart/SideProfile';
 
-const Header = ({ showAddInfo, showLogin, sideProfile }) => {
+const Header = ({ hideLogo, showAddInfo, showLogin, sideProfile }) => {
     return (
         <header className="hm main-header">
             <div className="container">
                 {showAddInfo ?
                     <>
-                        <Link className="logo" to="/">
-                            <img src="/images/mbe-main-logo.png" alt="logo"
-                                style={{ width: '270px' }} />
-                        </Link>
+                        {
+                            hideLogo ?
+                                null :
+                                <Link className="logo" to="/">
+                                    <img src="/images/mbe-main-logo.png" alt="logo"
+                                        style={{ width: '270px' }} />
+                                </Link>
+                        }
                         <nav className="middleNav">
                             <Link to="/aboutus">About</Link>
                             <Link to="/updates">Updates</Link>
